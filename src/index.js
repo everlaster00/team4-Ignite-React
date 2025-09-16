@@ -6,6 +6,8 @@ import './index.css';
 import App from './App';
 import AIContentPlanner from './components/AIContentPlanner';
 // import PromptDetail from './components/PromptDetail'; // For future use
+import PromptRegistrationPage from './components/PromptRegistrationPage';
+import MyPage from './components/MyPage';
 import reportWebVitals from './reportWebVitals';
 
 // 라우터 설정: URL 경로와 컴포넌트를 매핑합니다.
