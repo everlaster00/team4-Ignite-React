@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import SplashVideo from './components/SplashVideo'; // <-- 여기에 SplashVideo를 추가한다!
+import './App.css';
+
+// 임시로 Home 컴포넌트를 만들자!
+const Home = () => <div>홈 화면이다!</div>;
+// 임시로 About 컴포넌트를 만들자!
+const About = () => <div>소개 화면이다!</div>;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showVideo, setShowVideo] = useState(true);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    // showVideo가 true일 때만 SplashVideo 컴포넌트를 보여준다!
+    showVideo ? (
+      <SplashVideo onVideoEnd={() => setShowVideo(false)} />
+    ) : (
+      <Routes>
+        {/* path="/"가 부모 라우트다. */}
+        <Route path="/" element={<Layout />}>
+          {/* 자식 라우트들은 부모 라우트 안에 들어간다. */}
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+        </Route>
+      </Routes>
+    )
+  );
 }
 
-export default App
+export default App;
