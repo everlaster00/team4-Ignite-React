@@ -18,6 +18,10 @@ const router = createBrowserRouter([
         index: true, // 기본 경로 (path: '/')일 때 보여줄 컴포넌트
         element: <HomePageLayout />,
       },
+      {
+        path: "register-prompt", // 예: /register-prompt
+        element: <PromptRegistrationPage />,
+      },
       // {
       //   path: "prompts/:promptId", // 예: /prompts/123
       //   element: <PromptDetail />,
