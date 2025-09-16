@@ -8,6 +8,8 @@ import HomePageLayout from './components/HomePageLayout';
 // import PromptDetail from './components/PromptDetail'; // For future use
 import PromptRegistrationPage from './components/PromptRegistrationPage';
 import MyPage from './components/MyPage';
+import CommunityPage from './components/CommunityPage';
+import GuidePage from './components/GuidePage';
 import reportWebVitals from './reportWebVitals';
 
 // 라우터 설정: URL 경로와 컴포넌트를 매핑합니다.
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "community", // 예: /community
         element: <CommunityPage />,
+      },
+      {
+        path: "guide", // 예: /guide
+        element: <GuidePage />,
       },
       // {
       //   path: "prompts/:promptId", // 예: /prompts/123
