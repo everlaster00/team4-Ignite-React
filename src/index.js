@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
-import AIContentPlanner from './components/AIContentPlanner';
+import HomePageLayout from './components/HomePageLayout';
 // import PromptDetail from './components/PromptDetail'; // For future use
 import PromptRegistrationPage from './components/PromptRegistrationPage';
 import MyPage from './components/MyPage';
@@ -23,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: "register-prompt", // 예: /register-prompt
         element: <PromptRegistrationPage />,
+      },
+      {
+        path: "my-page", // 예: /my-page
+        element: <MyPage />,
+      },
+      {
+        path: "community", // 예: /community
+        element: <CommunityPage />,
       },
       // {
       //   path: "prompts/:promptId", // 예: /prompts/123
