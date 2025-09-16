@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true, // 기본 경로 (path: '/')일 때 보여줄 컴포넌트
-        element: <AIContentPlanner />,
+        element: <HomePageLayout />,
       },
       // {
       //   path: "prompts/:promptId", // 예: /prompts/123
