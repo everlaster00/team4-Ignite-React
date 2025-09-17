@@ -1,2 +1,11 @@
 /* No specific styles needed here, Tailwind handles most of it */
 /* This file exists for consistency */
+
+.mobile-menu {
+    transition: max-height 0.3s ease-out;
+    max-height: 0;
+    overflow: hidden;
+}
+.mobile-menu.active {
+    max-height: 500px; /* Adjust as needed */
+}
