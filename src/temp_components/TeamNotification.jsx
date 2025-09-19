@@ -15,12 +15,15 @@ import { useState } from 'react'
               <h1 className='Notification text-green-700 text-center text-xl font-bold '>공지: 테일윈드CSS가 적용되었습니다. </h1>
             </div>
             <ul className='Noti'>
+              <li>작업 시작 전에 <code className='text-fuchsia-500'>git pull</code> 푸쉬하기 전에도 <code className='text-fuchsia-500'>git pull</code> </li>
               <li>css 적용된게 안보이시면 터미널에 <code className='text-blue-500'>npm install</code>을 쳐주세요🥰</li>
+              <li>팁💡: 작업내역 다 취소하고 원래대로 돌리고 싶으실 때는? <code className='text-emerald-600'>git clean -f</code> 해보시고 안되면?  <code className='text-emerald-600'>git rstore .</code> ⬅️&#x28;점까지&#x29;  </li>
             </ul>
             <hr />
           </div>
           <div className="Note w-[90vw]">
             <p>1빠!!</p>
+            <p>시험하실 것들 다 테스트 해보시거나, 남기고 싶으신 말들을 자유롭게 써주세요~</p>
           </div>
         </button> 
       )
