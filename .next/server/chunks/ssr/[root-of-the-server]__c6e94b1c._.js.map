@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file:///Users/admin/Desktop/team4-ignite-react/src/app/blog/page.js"],"sourcesContent":["export default function About() {\n  return (\n    <div className=\"p-8\">\n      <h1 className=\"text-4xl font-bold mb-4\">블로그 페이지</h1>\n      <p className=\"text-lg text-gray-600\">이 페이지의 주소는 /blog 입니다.</p>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;;0BACb,8OAAC;gBAAG,WAAU;0BAA0B;;;;;;0BACxC,8OAAC;gBAAE,WAAU;0BAAwB;;;;;;;;;;;;AAG3C","debugId":null}}]
-}
