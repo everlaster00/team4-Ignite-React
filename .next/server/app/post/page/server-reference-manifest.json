@@ -1,0 +1,20 @@
+{
+  "node": {
+    "601fff1fcffd8a8c32cc2e3cbc27595f53691955ff": {
+      "workers": {
+        "app/post/page": {
+          "moduleId": "[project]/.next-internal/server/app/post/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/actions/post-actions.js [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createComment",
+          "filename": "src/app/actions/post-actions.js"
+        }
+      },
+      "layer": {
+        "app/post/page": "action-browser"
+      },
+      "exportedName": "createComment",
+      "filename": "src/app/actions/post-actions.js"
+    }
+  },
+  "edge": {}
+}

@@ -1,8 +1,20 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <div className="p-8">
-      <h1 className="text-4xl font-bold mb-4">홈 페이지</h1>
-      <p className="text-lg text-gray-600">이 페이지의 주소는 / 입니다.</p>
+    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <section className="HomePage flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
+        <h3 className="HomeTile text-6xl text-fuchsia-500 font-bold text-shadow-2xs text-shadow-fuchsia-900">
+          Day34 강의자료</h3>
+      </section>
     </div>
   );
 }

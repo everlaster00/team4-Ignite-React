@@ -1,5 +1,66 @@
 {
-  "node": {},
+  "node": {
+    "601fff1fcffd8a8c32cc2e3cbc27595f53691955ff": {
+      "workers": {
+        "app/post/page": {
+          "moduleId": "[project]/.next-internal/server/app/post/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/actions/post-actions.js [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createComment",
+          "filename": "src/app/actions/post-actions.js"
+        }
+      },
+      "layer": {
+        "app/post/page": "action-browser"
+      },
+      "filename": "src/app/actions/post-actions.js",
+      "exportedName": "createComment"
+    },
+    "402da7858debface4662b90ba47b280310cacb94c6": {
+      "workers": {
+        "app/profile/page": {
+          "moduleId": "[project]/.next-internal/server/app/profile/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/actions/profile-actions.js [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateProfile",
+          "filename": "src/app/actions/profile-actions.js"
+        }
+      },
+      "layer": {
+        "app/profile/page": "rsc"
+      },
+      "filename": "src/app/actions/profile-actions.js",
+      "exportedName": "updateProfile"
+    },
+    "60a215900a10022cc30fd79ca03cd0462c25b544a4": {
+      "workers": {
+        "app/signup/page": {
+          "moduleId": "[project]/.next-internal/server/app/signup/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/signup/page.js [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "src/app/signup/page.js"
+        }
+      },
+      "layer": {
+        "app/signup/page": "rsc"
+      },
+      "filename": "src/app/signup/page.js",
+      "exportedName": "$$RSC_SERVER_ACTION_0"
+    },
+    "4082ad4dfb03994a64c66675bb03bb148785f74bf7": {
+      "workers": {
+        "app/contact/page": {
+          "moduleId": "[project]/.next-internal/server/app/contact/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/contact/page.js [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "$$RSC_SERVER_ACTION_0",
+          "filename": "src/app/contact/page.js"
+        }
+      },
+      "layer": {
+        "app/contact/page": "rsc"
+      },
+      "filename": "src/app/contact/page.js",
+      "exportedName": "$$RSC_SERVER_ACTION_0"
+    }
+  },
   "edge": {},
-  "encryptionKey": "5aLSw8bFfl7soDvGAIyU6Q09wXDUr1/yBZ7T702MB3k="
+  "encryptionKey": "UUZVleStHbdb/Dhw116cw1uEBpIHaXLFI/UB1nTEHUE="
 }
