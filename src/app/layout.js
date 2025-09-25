@@ -23,17 +23,18 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
         <header className="flex justify-between w-full py-2 px-2 bg-indigo-300">
           <div className="mainLink gap-2 text-xl text-white text-shadow-lg text-shadow-gray-500">
-            <Link href={"/"}>홈페이지</Link>
+            <Link href={"/"}>Home</Link>
           </div>
-
           <div className="subLink text-shadow-md text-shadow-gray-500 text-lime-100 space-x-2 ">
             <Link href={"/post"}>포스트</Link>
+            <Link href={"/counter"}>카운터</Link>
+            <Link href={"/blog"}>블로그</Link>
+            <Link href={"/product"}>상품</Link>
             <Link href={"/profile"}>프로파일</Link>
+            <Link href={"/todo"}>Todos</Link>
             <Link href={"/signup"}>회원가입</Link>
             <Link href={"/contact"}>문의하기</Link>
-
           </div>
-
         </header>
         <main>
         {children}

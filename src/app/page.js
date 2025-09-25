@@ -13,7 +13,7 @@ export default function Home() {
           priority
         />
         <h3 className="HomeTile text-6xl text-fuchsia-500 font-bold text-shadow-2xs text-shadow-fuchsia-900">
-          Day34 강의자료</h3>
+          Day33~34 강의자료</h3>
       </section>
     </div>
   );
