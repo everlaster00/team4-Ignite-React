@@ -1,14 +1,13 @@
-// app/signup/page.js
+// app/login/page.js
 "use client"
 import { useState } from 'react'
+import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-export default function SignUpPage() {
+export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [name, setName] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
 
@@ -16,43 +15,28 @@ export default function SignUpPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    // 비밀번호 확인
-    if (password !== confirmPassword) {
-      setError("비밀번호가 일치하지 않습니다")
-      return
-    }
-
-    if (password.length < 6) {
-      setError("비밀번호는 6자 이상이어야 합니다")
-      return
-    }
-
     setLoading(true)
     setError("")
 
     try {
-      const response = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password, name })
+      // NextAuth의 signIn 함수 사용
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false
       })
 
-      const data = await response.json()
-
-      if (!response.ok) {
-        setError(data.error || "회원가입에 실패했습니다")
+      if (result?.error) {
+        setError("이메일 또는 비밀번호가 올바르지 않습니다")
         return
       }
 
-      // 회원가입 성공! 로그인 페이지로 이동
-      alert("회원가입이 완료되었습니다. 로그인해주세요!")
-      router.push("/login")
+      // 로그인 성공!
+      router.push("/dashboard")
+      router.refresh()
 
     } catch (error) {
-      setError("네트워크 오류가 발생했습니다")
+      setError("로그인 중 오류가 발생했습니다")
     } finally {
       setLoading(false)
     }
@@ -63,12 +47,12 @@ export default function SignUpPage() {
       <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-lg">
         <div>
           <h2 className="text-center text-3xl font-bold">
-            회원가입
+            로그인
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            이미 계정이 있으신가요?{" "}
-            <Link href="/login" className="text-blue-600 hover:text-blue-500">
-              로그인하기
+            계정이 없으신가요?{" "}
+            <Link href="/signup" className="text-blue-600 hover:text-blue-500">
+              회원가입하기
             </Link>
           </p>
         </div>
@@ -92,21 +76,6 @@ export default function SignUpPage() {
             </div>
 
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                이름 (선택)
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                placeholder="홍길동"
-              />
-            </div>
-
-            <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 비밀번호
               </label>
@@ -118,23 +87,7 @@ export default function SignUpPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                placeholder="6자 이상 입력하세요"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                비밀번호 확인
-              </label>
-              <input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                required
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                placeholder="비밀번호를 다시 입력하세요"
+                placeholder="비밀번호를 입력하세요"
               />
             </div>
           </div>
@@ -152,9 +105,15 @@ export default function SignUpPage() {
             disabled={loading}
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-300 disabled:cursor-not-allowed"
           >
-            {loading ? "가입 중..." : "가입하기"}
+            {loading ? "로그인 중..." : "로그인"}
           </button>
         </form>
+
+        <div className="text-center">
+          <a href="#" className="text-sm text-gray-600 hover:text-gray-900">
+            비밀번호를 잊으셨나요?
+          </a>
+        </div>
       </div>
     </div>
   )
