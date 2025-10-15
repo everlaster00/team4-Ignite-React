@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from 'next/font/google';
-import Navigation from "./navigation";
-import Footer from "./igfooter";
+import Navigation from "./Navigation";
+import Footer from "./igFooter";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,11 +28,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <body>
+      <body className="flex flex-col min-h-screen">
         <header>
           <Navigation />
         </header>
-        <main>
+        <main className="flex-1">
           {children}
         </main>
         <footer>

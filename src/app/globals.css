@@ -1,2 +1,31 @@
 @import "tailwindcss";
 
+
+/* Glitch Animation for H2 */
+.glitch-text {
+    animation: glitch-flicker 1.5s infinite linear alternate,
+                glitch-color-shift 3s infinite linear alternate;
+    text-shadow: 2px 2px #4F46E5, -2px -2px #EC4899;
+}
+
+@keyframes glitch-flicker {
+    0% { text-shadow: 2px 2px #4F46E5, -2px -2px #EC4899; opacity: 1; }
+    10% { text-shadow: 2px 2px #EC4899, -2px -2px #4F46E5; opacity: 0.9; }
+    20% { text-shadow: -2px -2px #4F46E5, 2px 2px #EC4899; opacity: 1; }
+    30% { text-shadow: 2px -2px #EC4899, -2px 2px #4F46E5; opacity: 0.8; }
+    40% { text-shadow: 0 0 #4F46E5, 0 0 #EC4899; opacity: 1; }
+    50% { text-shadow: 1px 1px #4F46E5, -1px -1px #EC4899; opacity: 0.9; }
+    60% { text-shadow: -1px -1px #4F46E5, 1px 1px #EC4899; opacity: 1; }
+    70% { text-shadow: 2px 2px #EC4899, -2px -2px #4F46E5; opacity: 0.8; }
+    80% { text-shadow: 0 0 #EC4899, 0 0 #4F46E5; opacity: 1; }
+    90% { text-shadow: -1px 1px #EC4899, 1px -1px #4F46E5; opacity: 0.9; }
+    100% { text-shadow: 2px 2px #4F46E5, -2px -2px #EC4899; opacity: 1; }
+}
+
+@keyframes glitch-color-shift {
+    0% { color: #E2E8F0; }
+    25% { color: #60A5FA; }
+    50% { color: #F87171; }
+    75% { color: #FACC15; }
+    100% { color: #E2E8F0; }
+}
