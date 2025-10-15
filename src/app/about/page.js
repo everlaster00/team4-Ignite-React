@@ -1,4 +1,4 @@
-export default function About() {
+export default function about() {
   return (
     <div className="p-8 h-full">
       <h1 className="text-4xl font-bold mb-4">소개 페이지</h1>
