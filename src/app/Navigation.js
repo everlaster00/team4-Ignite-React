@@ -4,7 +4,7 @@ export default function Navigation() {
   return (
     <nav className="w-full py-4 px-6 md:px-12 z-50 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg border-b border-gray-800">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-blue-400 glitch-text ">이그나이트</h1>
+        <h1 className="text-2xl font-bold text-blue-400 font-sans glitch-text ">이그나이트</h1>
         <nav>
           <ul className="flex space-x-4 md:space-x-3 text-gray-300 text-sm md:text-base">
             <li><Link href="./" 
