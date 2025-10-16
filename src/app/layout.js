@@ -21,8 +21,8 @@ const inter = Inter({
 
 
 export const metadata = {
-  title: '프롬프트 마켓',
-  description: 'AI에게 생명을 불어넣는 최고의 프롬프트를 만나보세요.',
+  title: '이그나이트 쇼케이스',
+  description: '이그나이트 팀 프로젝트입니다',
 };
 
 export default function RootLayout({ children }) {
