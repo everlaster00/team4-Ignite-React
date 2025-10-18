@@ -1,4 +1,4 @@
-'use client'; 
+'use client'; //test
 
 import { useState, useEffect } from 'react';
 import { createPost, deleteLatestPost, getPosts } from './serverActions'; 
