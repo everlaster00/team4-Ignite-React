@@ -1,0 +1,54 @@
+//npx prisma migrate dev --schema=prisma/KM_Sub.prisma --name message
+//npx prisma migrate reset --schema=prisma/KM_Sub.prisma
+//npx prisma generate --schema=prisma/KM_Sub.prisma
+generator KM_Sub_client {
+  provider = "prisma-client-js"
+  output = "../src/generated/prisma-client/km-sub"
+}
+
+datasource KM_Sub_db {
+  provider  = "postgresql"
+  url       = env("KM_DATABASE_URL")
+  directUrl = env("KM_DIRECT_URL")
+}
+
+// 아래 데이터 베이스의 내용이 수정 될 때마다
+// npx prisma migrate dev --name 작업내역메시지
+// 배포된 환경에서는 npx prisma migrate deploy
+
+//# 마지막 마이그레이션 되돌리기. 롤백용 (개발 환경) (경고: 모든 데이터 손실))
+// npx prisma migrate reset
+
+// 데이터베이스 작성 예제
+// enum Role {
+//   USER
+//   ADMIN
+// }
+
+// model User {
+//   id          String   @id @default(cuid())
+//   email       String   @unique
+//   name        String?
+//   phoneNumber String?
+//   password    String
+//   role        Role     @default(USER)
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+//   posts       Post[]
+// }
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+}
+//   content   String?
+//   published Boolean  @default(false)
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+
+//   authorId String
+//   author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+//   @@index([authorId])
+//   @@index([published])
+// }

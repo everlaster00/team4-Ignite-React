@@ -7,11 +7,12 @@ export default function Navigation() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-blue-400 font-sans glitch-text ">이그나이트</h1>
         <nav>
-          <ul className="flex space-x-4 md:space-x-3 text-gray-300 text-sm md:text-base">
-            <li><Link href="./" className={navItemClass}>홈</Link></li>
-            <li><Link href="about" className={navItemClass}>소개</Link></li>
-            <li><Link href="community" className={navItemClass}>커뮤니티</Link></li>
-            <li><Link href="contact" className={navItemClass}>고객센터</Link></li>
+          <ul className="flex space-x-4 md:space-x-3 text-gray-300 text-base md:text-lg  ">
+            <li><Link href="/" className={navItemClass}>홈</Link></li>
+            <li><Link href="/about" className={navItemClass}>소개</Link></li>
+            <li><Link href="/products" className={navItemClass}>갤러리</Link></li>
+            <li><Link href="/idea_borad" className={navItemClass}>아이디어 보드</Link></li>
+            <li><Link href="/contact" className={navItemClass}>문의하기</Link></li>
         </ul>
         </nav>
       </div>
