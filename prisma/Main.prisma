@@ -1,15 +1,15 @@
-// npx prisma migrate dev --schema=prisma/KM_Main.prisma --name message
-// npx prisma migrate reset --schema=prisma/KM_Main.prisma
-// npx prisma generate --schema=prisma/KM_Main.prisma
-generator KM_Main_client {
+// npx prisma migrate dev --schema=prisma/Main.prisma --name message
+// npx prisma migrate reset --schema=prisma/Main.prisma
+// npx prisma generate --schema=prisma/Main.prisma
+generator Main_client {
   provider = "prisma-client-js"
-  output = "../src/generated/prisma-client/km-main"
+  output = "../src/generated/prisma-client/main"
 }
 
-datasource KM_Main_db {
+datasource Main_db {
   provider  = "postgresql"
-  url       = env("KM_Main_DATABASE_URL")
-  directUrl = env("KM_Main_DIRECT_URL")
+  url       = env("MAIN_DATABASE_URL")
+  directUrl = env("MAIN_DIRECT_URL")
 }
 
 // 아래 데이터 베이스의 내용이 수정 될 때마다
