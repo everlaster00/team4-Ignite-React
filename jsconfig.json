@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@@/*": ["./src/components/*"],
+      "@prj/*": ["./src/app/products/*"] 
+    }
+  },
+  "include": [
+    "src/**/*.js", 
+    "src/**/*.jsx",
+    "src/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    ".next"
+  ]
+}

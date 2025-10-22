@@ -10,6 +10,22 @@ export default function ProductPost({ params }) {
       redirect('/products/Everlaster');
       break;
 
+    case 'ajea':
+      redirect('/products/ajea');
+      break;
+
+    case 'logicnotfound404':
+      redirect('/products/LogicNotFound404');
+      break;
+
+    case 'luke':
+      redirect('/products/luke');
+      break;
+
+    case 'nicecoco':
+      redirect('/products/nicecoco');
+      break;
+
     default:
       break;
   } 
