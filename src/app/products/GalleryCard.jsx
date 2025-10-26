@@ -5,7 +5,7 @@ export default function GalleryCard({nick}) {
   const redirectClass = "link-btn rounded-md bg-gradient-to-br from-cyan-100 to-cyan-900 text-white text-shadow-md text-shadow-black/70 shadow-md hover:cursor-pointer py-2 px-6";
   return (
     <div className={galleryCard}>
-      <h4 className="EverlasterShowcase text-lg font-semibold ">{nick}님의 갤러리입니다.</h4>
+      <h4 className="GallerieShowcase text-lg font-semibold ">{nick}님의 갤러리입니다.</h4>
       <button className={redirectClass}>
         <Link href={`/products/${nick}`}>갤러리로 가기</Link>
       </button>

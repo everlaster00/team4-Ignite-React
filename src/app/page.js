@@ -1,5 +1,5 @@
-import PostTester from '@/test/PostTester';
-import TestToast from '@/test/TestToast';
+import PostTester from '@/test/db_tester/PostTester';
+import TestToast from '@/test/toast/TestToast';
 
 export default function Home() {
   return (

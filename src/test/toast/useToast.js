@@ -11,7 +11,7 @@ export const useToast = () => {
 
     const timerKey = setTimeout(() => {
       setToastMsgs( (prev)=> prev.filter( msgs => msgs.key !== timerKey ));
-    }, msg.length * 200 + 1000 );
+    }, msg.length * 200 + 1500 );
     
     setToastMsgs( (prev) => { 
       let stackCount = 1;

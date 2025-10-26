@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { createPost, deleteLatestPost, getPosts } from './serverActions'; 
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from '@@/LoadingSpinner';
 
+console.log('PostTester 임포트 완료');
 // ✨ 6개의 DB 목록 정의!
 const DB_OPTIONS = [
   { value: 'Main', label: 'Main DB (Post)' },

@@ -5,14 +5,12 @@ import { useState , useRef } from 'react';
 export default function TestToast() {
   const [inputValue, setInputValue] = useState('');
   const timeoutRef = useRef(null);
-  const inputRef = useRef(null);
-
+  console.log('testToast 임포트 완료');
 
   const handleAction = () => {     
-    if (inputValue.trim() !== '' && typeof window !== 'undefined' && window.showToast) {
-      window.showToast(inputValue); //클라이언트에서 사용하는 토스트 코드는 이걸로 충분.임포트도 필요없음.
-    }
-      setInputValue('');
+    if (inputValue.trim() !== '') 
+      globalThis.showToast(inputValue);//토스트 코드는 이걸로 충분.임포트도 필요없음.
+    setInputValue('');
   };
   
   function handleKeyPress (e) {
@@ -36,7 +34,6 @@ export default function TestToast() {
     <div className="ToastTesterBody flex flex-row justify-center items-center mx-auto my-1 space-x-2">
       <input className="border-1 w-1/3 mx-auto px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-500"
         type="text"
-        ref={inputRef}
         value={inputValue}
         onChange={(e)=> {setInputValue(e.target.value)}}
         onKeyDown={handleKeyPress}
