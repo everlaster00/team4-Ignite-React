@@ -1,4 +1,4 @@
-//src/lob/socketPromise.js
+//src/lib/socket_io/socketPromise.js
 // io 인스턴스가 생성되었을 때 resolve 할 함수를 저장합니다.
 let resolveIo;
 const ioPromise = new Promise(resolve => {

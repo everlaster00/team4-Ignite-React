@@ -1,33 +1,36 @@
-// src/lib/SocketInitializer.jsx 
+// src/lib/socket_io/SocketInitializer.jsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { io } from 'socket.io-client'; 
+import { useSocketStore } from '@/stores/useSocketStore'; // 💡 Zustand 스토어 임포트
 
 export default function SocketInitializer() {
     
-    // ⬅️ isMounted 상태 복구
-    const [isMounted, setIsMounted] = useState(false); 
-
-    // 1. 마운트 시점에 isMounted를 true로 바꾸는 useEffect
+    // 💡 Zustand 스토어에서 setSocket 함수를 가져옵니다.
+    const setSocket = useSocketStore((state) => state.setSocket);
+    
     useEffect(() => {
-        // 컴포넌트가 마운트되면 isMounted를 true로 설정합니다.
-        setIsMounted(true);
-    }, []); 
+        // 1. 서버 초기화를 먼저 트리거합니다.
+        fetch('/api/sockets'); 
+        
+        let socket;
+        
+        // 💡 이미 소켓이 연결되어 있는지 확인하는 로직 (선택 사항)
+        // const existingSocket = useSocketStore.getState().socket;
+        // if (existingSocket) return;
 
-    // 2. isMounted가 true가 되면 소켓 연결 로직을 실행하는 useEffect
-    useEffect(() => {
-        // isMounted가 true일 때만 소켓 연결 로직을 실행합니다.
-        if (!isMounted) return; 
-
-        // 1. 올바른 경로로 소켓 연결 시도
-        const socket = io({ 
+        // 2. 올바른 경로로 소켓 연결 시도
+        socket = io({ 
             path: '/api/socket', 
-            reconnectionAttempts: 3 
+            reconnectionAttempts: 10, 
+            reconnectionDelay: 1000 
         });
 
         socket.on('connect', () => {
-            console.log('클라이언트: 소켓 연결 성공 (서버 인스턴스 활성화됨)');
+            console.log('클라이언트: 소켓 연결 성공 (Zustand 저장)');
+            // 💡 연결 성공 시 Zustand에 소켓 인스턴스를 저장합니다.
+            setSocket(socket); 
         });
         
         socket.on('connect_error', (err) => {
@@ -36,10 +39,13 @@ export default function SocketInitializer() {
 
         // 3. 컴포넌트 언마운트 시 연결 정리
         return () => {
-            socket.disconnect();
+            if (socket) {
+                socket.disconnect();
+                // 💡 Zustand에서 소켓 상태를 null로 지워줄 수도 있음.
+                // setSocket(null); 
+            }
         };
-    }, [isMounted]); // ⬅️ isMounted에 의존하도록 설정
+    }, [setSocket]); // 💡 setSocket이 변경될 일은 없지만, useEffect의 룰을 따름.
 
-    // ⬅️ 렌더링은 null로 복구 (실제 앱 로직에 영향 없도록)
     return null; 
 }

@@ -2,13 +2,14 @@
 'use client';
 import { useEffect , useRef } from 'react';
 import { useToast } from './useToast'
-// import io from 'socket.io-client';
+import { useSocketStore } from '@/stores/useSocketStore';
 
 let socket;
 console.log('토스트 시스템 임포트');
 export default function Toast() {
   const { toastMsgs , showToast } = useToast();
   const showToastRef = useRef(showToast);
+  const socket = useSocketStore((state) => state.socket);
   
   useEffect (()=>{
     globalThis.showToast = showToast;
@@ -16,41 +17,33 @@ export default function Toast() {
   },[showToast])
 
   useEffect (() => {
-    // //경로는 URL경로 입력형
-    // fetch('/api/socket').then(()=>{
-    //   //소켓 클라이언트 연결 (개발 환경에서는 포트를 명시하지 않으면 현재 URL을 사용해요.)
-    //   if (!socket) {
-    //     // socket.io-client를 사용하여 서버에 접속
-    //     socket = io();
+    // 💡 소켓 인스턴스가 연결되었을 때만 로직을 실행합니다.
+    if (socket) {
         
-    //     // 2-3. 연결 성공 리스너 (선택 사항)
-    //     socket.on('connect', () => {
-    //       console.log('클라이언트 소켓 연결 성공!');
-    //     });
-        
-    //     //🚨 서버 메시지 큐 수신 리스너 (가장 중요)
-    //     socket.on('toastMessages', (messages) => {
-    //       console.log('서버로부터 토스트 메시지 큐 수신:', messages);
+        // 🚨 서버 메시지 큐 수신 리스너 (가장 중요)
+        // 리스너가 중복 등록되는 것을 방지하기 위해 off를 먼저 하거나, 
+        // hasListeners 체크를 할 수 있지만, 간단하게 등록만 할게이.
+        const handleToastMessages = (messages) => {
+          console.log('서버로부터 토스트 메시지 큐 수신:', messages);
           
-    //       // 받은 메시지 배열을 순서대로 showToast로 출력해요.
-    //       messages.forEach( (msg) => {
-    //         showToastRef.current(msg);
-    //       });
-    //     });
+          // 받은 메시지 배열을 순서대로 showToast로 출력해요.
+          messages.forEach( (msg) => {
+            showToastRef.current(msg);
+          });
+        };
+        
+        socket.on('toastMessages', handleToastMessages);
+        console.log('클라이언트: toastMessages 리스너 등록 완료.');
     
-    //     //컴포넌트 언마운트 시 소켓 연결을 정리해요.
-    //     return () => {
-    //       if (socket) {
-    //         socket.disconnect();
-    //         socket = null; // 정리 후 null로 초기화해요.
-    //       }
-    //     };
-    //   }
-    // });
-
-    
-  },[])
-  
+        // 컴포넌트 언마운트 시 소켓 리스너를 정리해요.
+        // 💡 소켓 연결 자체는 SocketInitializer가 담당하므로 리스너만 제거합니다.
+        return () => {
+          socket.off('toastMessages', handleToastMessages);
+          console.log('클라이언트: toastMessages 리스너 정리 완료.');
+        };
+    }
+    // 💡 소켓이 Zustand에 저장될 때 이 useEffect가 다시 실행될 겁니다.
+  },[socket])
   
   const isShow = toastMsgs.length !== 0;
   
