@@ -1,5 +1,9 @@
 // src/app/about/page.jsx
 import EverlasterAvatar from '@/assets/images/EverlasterAvatar.webp'
+import NotFoundLogic404Avartar from '@/assets/images/NotFoundLogic404Avartar.webp'
+import lukeAvatar from '@/assets/images/lukeAvatar.webp'
+import nicecocoAvarta from '@/assets/images/nicecocoAvarta.webp'
+import ajeaAvatar from '@/assets/images/ajeaAvatar.webp'
 
 import TeamCard from './TeamCard';
 import IgniteFont from '@@/IgniteFont';
@@ -13,25 +17,25 @@ const teamMembers = [
     bio: 'Ignite 팀의 비전을 제시하고 모두의 열정에 불을 붙이는 시작점입니다.',
   },
   {
-    avatarUrl: '/avatars/member1.png',
+    avatarUrl: nicecocoAvarta.src,
     name: 'nicecoco',
     role: '✨ 픽셀의 연금술사',
     bio: '디자이너의 의도를 완벽하게 이해하고, 정적인 이미지를 생동감 있는 코드로 변환합니다.',
   },
   {
-    avatarUrl: '/avatars/member2.png',
+    avatarUrl: lukeAvatar.src,
     name: 'luke',
     role: '💎 에러 보석 수집가',
     bio: '코딩 속에 숨어있는 작은 실수와 버그를 놓치지 않고 수집하여 코드를 단단하게 만듭니다.',
   },
   {
-    avatarUrl: '/avatars/member3.png',
+    avatarUrl: NotFoundLogic404Avartar.src,
     name: 'LogicNotFound404',
     role: '🗺️ 미로 찾기 탐험가',
     bio: '복잡하게 얽힌 로직의 실타래를 푸는 것을 즐기며, 불가능해 보이는 문제도 해결합니다.',
   },
   {
-    avatarUrl: '/avatars/member4.png',
+    avatarUrl: ajeaAvatar.src,
     name: 'ajea',
     role: '⚡️ 0.1초의 마법사',
     bio: '서비스의 로딩 속도와 응답 시간을 단 0.1초라도 줄이기 위해 밤낮없이 최적화를 시도합니다.',
