@@ -1,6 +1,6 @@
-//npx prisma migrate dev --schema=prisma/NC.prisma --name message
-//npx prisma migrate reset --schema=prisma/NC.prisma
-//npx prisma generate --schema=prisma/NC.prisma
+//npx prisma migrate dev --schema=./prisma/NC.prisma --name message
+//npx prisma migrate reset --schema=./prisma/NC.prisma
+//npx prisma generate --schema=./prisma/NC.prisma
 generator NC_client {
   provider = "prisma-client-js"
   output = "../src/generated/prisma-client/nc"

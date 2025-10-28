@@ -1,6 +1,6 @@
-//npx prisma migrate dev --schema=prisma/KM.prisma --name message
-//npx prisma migrate reset --schema=prisma/KM.prisma
-//npx prisma generate --schema=prisma/KM.prisma
+//npx prisma migrate dev --schema=./prisma/KM.prisma --name message
+//npx prisma migrate reset --schema=./prisma/KM.prisma
+//npx prisma generate --schema=./prisma/KM.prisma
 generator KM_client {
   provider = "prisma-client-js"
   output = "../src/generated/prisma-client/km"

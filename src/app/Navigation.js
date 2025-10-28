@@ -21,14 +21,14 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="w-full py-4 px-6 md:px-12 z-50 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg border-b border-gray-800">
+    <nav className="w-full py-2 md:py-4 px-6 md:px-12 z-50 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg border-b border-gray-800">
       <div className="flex items-center justify-between">
         <div className='TitleBox flex flex-row items-center'>
-          <Image src={logo} alt="Ignite Logo" className="inline-block w-7 h-7 mr-2 rounded-full" />
-          <h1 className="text-2xl font-bold text-blue-400 font-sans glitch-text ">이그나이트</h1>
+          <Image src={logo} alt="Ignite Logo" className="inline-block size-6 md:size-7 mr-2 rounded-full" />
+          <h1 className="text-lg md:text-2xl font-bold text-blue-400 font-sans glitch-text ">이그나이트</h1>
         </div>
         <nav>
-          <ul className="flex space-x-4 md:space-x-3 text-gray-300 text-base md:text-lg  ">
+          <ul className="flex space-x-1 md:space-x-3 text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl  ">
             <li><Link href="/" className={getNavItemClass("/")}>홈</Link></li>
             <li><Link href="/about" className={getNavItemClass("/about")}>소개</Link></li>
             <li><Link href="/products" className={getNavItemClass("/products")}>갤러리</Link></li>
