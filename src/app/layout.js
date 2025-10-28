@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 import IgFooter from "./IgFooter";
 import ClientWrapper from "@@/ClientWrapper";
 import "@/test/toast/InitGlobalToast";
-import Toast from '@/test/toast/Toast';
+import Toast from "@/test/toast/Toast";
 import "./globals.css";
 
 // 구시스템 환경에서의 폰트 현시스템에서 호환안돼서 주석처리
@@ -21,12 +21,12 @@ import "./globals.css";
 // 이 폰트는 확인 해보니 한글 지원 안되는 폰트였음
 // const inter = Inter({
 //   variable: "--font-inter",
-//   subsets: ['latin'] 
+//   subsets: ['latin']
 // });
 
 export const metadata = {
-  title: '이그나이트 쇼케이스',
-  description: '이그나이트 팀 프로젝트입니다',
+  title: "이그나이트 쇼케이스",
+  description: "이그나이트 팀 프로젝트입니다",
 };
 
 export default function RootLayout({ children }) {
@@ -38,9 +38,7 @@ export default function RootLayout({ children }) {
         <header>
           <Navigation />
         </header>
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <footer>
           <IgFooter />
         </footer>
