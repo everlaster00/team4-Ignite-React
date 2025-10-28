@@ -10,6 +10,7 @@ export default function Toast() {
   const { toastMsgs , showToast } = useToast();
   const showToastRef = useRef(showToast);
   const socket = useSocketStore((state) => state.socket);
+  console.log('주스탄드로 연결된 소켓 = ',socket);
   
   useEffect (()=>{
     globalThis.showToast = showToast;

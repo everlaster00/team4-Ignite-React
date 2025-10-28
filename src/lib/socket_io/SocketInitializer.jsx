@@ -34,7 +34,7 @@ export default function SocketInitializer() {
         });
         
         socket.on('connect_error', (err) => {
-            console.error('클라이언트: 소켓 연결 오류 발생', err.message);
+            console.log('클라이언트: 소켓 연결 오류 발생', err.message);
         });
 
         // 3. 컴포넌트 언마운트 시 연결 정리

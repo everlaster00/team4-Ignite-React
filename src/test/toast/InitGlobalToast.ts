@@ -34,7 +34,7 @@ function scheduleToastFlush() {
     isScheduled = true;
 
     process.nextTick(() => {// ⬅️ nextTick으로 배칭 (메시지 큐 통합)
-      console.log("소켓 연결을 시도합니다");
+      console.log("소켓 연결을 시도합니다. io=",io);
       getSocketIoPromise().then((io) => { // ⬅️ Promise로 io 인스턴스 대기
         console.log("소켓 연결 성공");
         if (serverTrunk.length > 0) {
