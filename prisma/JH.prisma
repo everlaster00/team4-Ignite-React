@@ -1,6 +1,7 @@
 //npx prisma migrate dev --schema=./prisma/JH.prisma --name message
 //npx prisma migrate reset --schema=./prisma/JH.prisma
 //npx prisma generate --schema=./prisma/JH.prisma
+//npm run gen:all  (모든 db의 클라이언트 생성을 한방에)
 generator JH_client {
   provider = "prisma-client-js"
   output = "../src/generated/prisma-client/jh"
