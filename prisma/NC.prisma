@@ -3,7 +3,7 @@
 //npx prisma generate --schema=./prisma/NC.prisma
 generator NC_client {
   provider = "prisma-client-js"
-  output = "../src/generated/prisma-client/nc"
+  output   = "../src/generated/prisma-client/nc"
 }
 
 datasource NC_db {
@@ -19,8 +19,7 @@ datasource NC_db {
 //# 마지막 마이그레이션 되돌리기. 롤백용 (개발 환경) (경고: 모든 데이터 손실))
 // npx prisma migrate reset --스키마 경로
 
-
 model NC_Post {
-  id        String   @id @default(cuid())
-  title     String
+  id    String @id @default(cuid())
+  title String
 }

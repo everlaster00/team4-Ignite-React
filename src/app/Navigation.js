@@ -32,7 +32,7 @@ export default function Navigation() {
             <li><Link href="/" className={getNavItemClass("/")}>홈</Link></li>
             <li><Link href="/about" className={getNavItemClass("/about")}>소개</Link></li>
             <li><Link href="/products" className={getNavItemClass("/products")}>갤러리</Link></li>
-            <li><Link href="/idea_borad" className={getNavItemClass("/idea_borad")}>아이디어 보드</Link></li>
+            <li><Link href="/idea_board" className={getNavItemClass("/idea_board")}>아이디어 보드</Link></li>
             <li><Link href="/contact" className={getNavItemClass("/contact")}>문의하기</Link></li>
         </ul>
         </nav>

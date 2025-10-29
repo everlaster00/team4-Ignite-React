@@ -1,4 +1,4 @@
-export default function community() {
+export default function idea_board() {
   return (
     <div className="p-8">
       <h1 className="text-4xl font-bold mb-4">아이디어 보드 페이지</h1>
