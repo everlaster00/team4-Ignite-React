@@ -24,3 +24,6 @@ model JW_Post {
   id        String   @id @default(cuid())
   title     String
 }
+
+
+
