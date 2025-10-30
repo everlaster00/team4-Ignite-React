@@ -1,6 +1,6 @@
 import { yChoi, overWatch } from "../fonts/local";
 import Navigation from "./Navigation";
-import IgFooter from "./igFooter";
+import IgFooter from "./IgFooter";
 import ClientWrapper from "@@/ClientWrapper";
 import "@/test/toast/InitGlobalToast";
 import Toast from "@/test/toast/Toast";
