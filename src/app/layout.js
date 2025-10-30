@@ -1,7 +1,7 @@
 // import { Geist, Geist_Mono } from "next/font/google";
 // import { Inter } from 'next/font/google';
 import Navigation from "./Navigation";
-import IgFooter from "./IgFooter";
+import IgFooter from "./igFooter";
 import ClientWrapper from "@@/ClientWrapper";
 import "@/test/toast/InitGlobalToast";
 import Toast from "@/test/toast/Toast";
