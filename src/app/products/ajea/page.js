@@ -2,12 +2,12 @@
 import { useEffect, useState } from "react";
 
 // Next.js App Router 메타데이터 (선택 사항)
-export async function generateMetadata() {
-  return {
-    title: "TimeTraveler | 시간의 마법사",
-    description: "현재 날짜와 시간을 알려주는 마법 같은 페이지",
-  };
-}
+// export async function generateMetadata() {
+//   return {
+//     title: "TimeTraveler | 시간의 마법사",
+//     description: "현재 날짜와 시간을 알려주는 마법 같은 페이지",
+//   };
+// }
 
 function TimeMachine() {
   const [now, setNow] = useState(new Date());
