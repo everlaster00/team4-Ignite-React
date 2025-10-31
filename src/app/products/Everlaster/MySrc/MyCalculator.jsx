@@ -79,9 +79,8 @@ const MyCalculator = () => {
       <div className="calculator-body w-full md:w-3/5 relative">
         
         {/* 1-1. 말풍선 (비주얼 아이디어 구현 자리) */}
-        {/* '나이뜨!' 폰트는 Y최애체로 지정해서 특이함을 살려보세용! */}
-        <div className={`nice-popup absolute right-0 top-[-20px] bg-yellow-300 p-2 rounded-full transform transition-opacity ${showNice ? 'opacity-100' : 'opacity-0'}`}>
-          <span className="font-ychoi text-xl text-red-600 font-extrabold">✨ 나이뜨!</span>
+        <div className={`nice-popup absolute left-[-45px] top-[-35px] bg-yellow-300 p-2 rounded-full rounded-br-none transform transition-opacity ${showNice ? 'opacity-100' : 'opacity-0'}`}>
+          <span className="font-ychoi origin-center text-xl text-red-600 font-extrabold">✨ 나이뜨!</span>
         </div>
         
         {/* 1-2. 계산기 화면 */}
@@ -130,7 +129,7 @@ const MyCalculator = () => {
           {resultHistory.map((item, index) => (
             <li key={index} className="text-gray-700">{item}</li>
           ))}
-          {resultHistory.length === 0 && <li className="text-gray-400">기록이 없습니더.</li>}
+          {resultHistory.length === 0 && <li className="lg:text-sm xl:text-base text-gray-400">기록이 없습니다.</li>}
         </ul>
       </div> {/* 👈 history-section 끝 */}
       

@@ -20,35 +20,44 @@ datasource Main_db {
 // npx prisma migrate reset
 
 // 데이터베이스 작성 예제
-// enum Role {
-//   USER
-//   ADMIN
-// }
+enum Role {
+  USER
+  ADMIN
+}
 
-// model User {
-//   id          String   @id @default(cuid())
-//   email       String   @unique
-//   name        String?
-//   phoneNumber String?
-//   password    String
-//   role        Role     @default(USER)
-//   createdAt   DateTime @default(now())
-//   updatedAt   DateTime @updatedAt
-//   posts       Post[]
-// }
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique           // 로그인 필수
+  name      String
+  roll      Role     @default(USER)
+  createdAt DateTime @default(now())
+
+  // name은 검색 빈도에 따라 결정
+  // @@index([name])  // 자주 검색하면 추가
+}
 
 model Post {
-  id        String   @id @default(cuid())
+  id        Int      @id @default(autoincrement())
   title     String
+  content   String
+  authorId  Int
+  status    String   // 'DRAFT', 'PUBLISHED'
+  createdAt DateTime @default(now())
+
+  // 복합 인덱스: 동시에 자주 사용
+  @@index([authorId, status])
+
+  // 단일 인덱스: 정렬용
+  @@index([createdAt(sort: Desc)])
 }
-//   content   String?
-//   published Boolean  @default(false)
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
 
-//   authorId String
-//   author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+model Comment {
+  id        Int      @id @default(autoincrement())
+  postId    Int
+  userId    Int
+  content   String
+  createdAt DateTime @default(now())
 
-//   @@index([authorId])
-//   @@index([published])
-// }
+  @@index([postId])     // 게시글의 댓글 조회
+  @@index([userId])     // 사용자의 댓글 조회
+}

@@ -67,9 +67,9 @@ export default function EverlasterShowCaseHome() {
         {/* --- 2. 계산기 영역 (오른쪽/하단) --- */}
         <article className="w-full m-2">
           {/* 계산기 컴포넌트는 항상 이 영역 중앙에 위치하도록 Flex를 적용한다 안카나. */}
-          <div className="flex justify-center items-center h-full">
+          <div className="flex justify-center items-center w-full h-full">
             {/* <Calculator /> */}
-            <div className="p-4 bg-gray-100 rounded-lg border border-gray-300 w-full max-w-sm text-center">
+            <div className="p-4 bg-gray-100 rounded-lg border border-gray-300 w-full text-center">
               <MyCalculator />
             </div>
           </div>
