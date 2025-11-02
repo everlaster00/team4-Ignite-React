@@ -21,7 +21,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="w-full py-2 md:py-4 px-6 md:px-12 z-50 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg border-b border-gray-800">
+    <nav className="z-index-50 w-full py-2 md:py-4 px-6 md:px-12 z-50 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg border-b border-gray-800">
       <div className="flex items-center justify-between">
         <div className='TitleBox flex flex-row items-center'>
           <Image src={logo} alt="Ignite Logo" className="inline-block size-6 md:size-7 mr-2 rounded-full" />

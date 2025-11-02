@@ -8,10 +8,11 @@
  * @param {string} props.role - 팀원 역할 (예: "프론트엔드")
  * @param {string} props.bio - 팀원 자기소개
  */
-export default function TeamCard({ avatarUrl, name, role, bio }) {
+export default function TeamCard({ id, avatarUrl, name, role, bio }) {
+  console.log(id);
   return (
-    <div className="w-90 sm:w-130 md:w-160 lg:w-220 mx-auto bg-white shadow-xl rounded-xl overflow-hidden 
-    transform hover:scale-[1.02] transition-transform duration-300 ease-in-out border-t-8 border-amber-500">
+    <div id={`Member-${id}`} className={`w-90 sm:w-130 md:w-160 lg:w-220 mx-auto bg-white shadow-xl rounded-xl overflow-hidden 
+    transform hover:scale-[1.02] transition-transform duration-300 ease-in-out border-t-8 border-amber-500`}>
       
       {/* 📌 아바타 이미지 (고정 비율 유지를 위해 flex 사용) */}
       <div className="AvataBody flex justify-center items-center p-8 md:p-12 bg-gray-50">

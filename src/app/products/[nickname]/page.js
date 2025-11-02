@@ -1,34 +1,15 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import MEMBER_INFO from "@@/members/memberInfo";
 
 export default function ProductPost({ params }) {
   const currentNickname = params.nickname.toLowerCase();
   const redirectClass = ` p-2 rounded-md hover:pointer hover:text-blue-500/90`
 
-  switch (currentNickname) {
-    case 'everlaster':
-      redirect('/products/Everlaster');
-      break;
-
-    case 'ajea':
-      redirect('/products/ajea');
-      break;
-
-    case 'logicnotfound404':
-      redirect('/products/LogicNotFound404');
-      break;
-
-    case 'luke':
-      redirect('/products/luke');
-      break;
-
-    case 'nicecoco':
-      redirect('/products/nicecoco');
-      break;
-
-    default:
-      break;
-  } 
+  for (const target of MEMBER_INFO) {
+    if ( currentNickname === target.nickName.toLowerCase() )
+      redirect(`/products/${target.nickName}`)
+  }
 
   return (
     <div className="flex flex-col justify-center items-center p-8">

@@ -5,6 +5,29 @@
     --font-overwatch: var(--font-overwatch);
 }
 
+html {
+  /* ⭐ 모든 앵커 이동 및 스크롤 명령이 부드럽게! ⭐ */
+    scroll-behavior: smooth; 
+}
+
+.SCROLLHIDDEN {
+    /* 웹킷 (Chrome, Safari, Edge) 계열 대응 */
+    &::-webkit-scrollbar {
+        display: none; /* 스크롤바 모양을 완전히 없애기 */
+        width: 0;
+        height: 0;
+    }
+
+    /* 파이어폭스(Firefox) 대응 */
+    scrollbar-width: none; 
+
+    /* IE 및 구형 Edge 대응 */
+    -ms-overflow-style: none;
+
+    -webkit-overflow-scrolling: auto;
+    overscroll-behavior: contain;
+    box-shadow: none !important;
+}
 
 /* Glitch Animation for H2 */
 .glitch-text {
