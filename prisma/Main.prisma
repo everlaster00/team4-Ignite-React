@@ -3,7 +3,7 @@
 // npx prisma generate --schema=./prisma/Main.prisma
 generator Main_client {
   provider = "prisma-client-js"
-  output = "../src/generated/prisma-client/main"
+  output   = "../src/generated/prisma-client/main"
 }
 
 datasource Main_db {
@@ -25,39 +25,97 @@ enum Role {
   ADMIN
 }
 
+model Connection {
+  id             String           @id @default(uuid())
+  ipAddress      String
+  updateAt       DateTime         @updatedAt
+  postLikes      PostLike[]
+  commentLikes   CommentLike[]
+}
+
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique           // 로그인 필수
-  name      String
-  roll      Role     @default(USER)
-  createdAt DateTime @default(now())
+  id           String    @id @default(cuid()) //uuid보다 가볍지만 보안성은 좀 더 떨어짐
+  email        String    
+  password     String    
+  name         String    @unique @Main_db.VarChar(20) //닉네임 (실명정보 무쓸모)
+  roll         Role      @default(USER) //권한
+  createdAt    DateTime  @default(now()) //최초 가입일
+  lastLoggedIn DateTime? //마지막 접속일(수동 관리)
+  posts        Post[]
+  comments     Comment[]
+  postLikes    PostLike[]
+  commentLikes CommentLike[]
 
   // name은 검색 빈도에 따라 결정
   // @@index([name])  // 자주 검색하면 추가
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   content   String
-  authorId  Int
-  status    String   // 'DRAFT', 'PUBLISHED'
-  createdAt DateTime @default(now())
+  authorId  String?
+  author    User?      @relation(fields: [authorId], references: [id])
+  anonym    String    @default("이그나이터") @Main_db.VarChar(20)
+  anonyPass String?
+  status    String // 'DRAFT', 'PUBLISHED'
+  createdAt DateTime  @default(now())
+  updateAt  DateTime  @updatedAt
+  comments  Comment[]
+  likes     PostLike[]
 
   // 복합 인덱스: 동시에 자주 사용
   @@index([authorId, status])
-
   // 단일 인덱스: 정렬용
   @@index([createdAt(sort: Desc)])
+
 }
 
 model Comment {
-  id        Int      @id @default(autoincrement())
+  id        Int        @id @default(autoincrement())
   postId    Int
-  userId    Int
+  post      Post       @relation(fields: [postId], references: [id])
+  userId    String?
+  user      User?      @relation(fields: [userId], references: [id])
+  anonym    String     @default("이그나이터") @Main_db.VarChar(20)
+  anonyPass String?
   content   String
-  createdAt DateTime @default(now())
+  createdAt DateTime   @default(now())
+  updateAt  DateTime   @updatedAt
+  likes     CommentLike[]
 
-  @@index([postId])     // 게시글의 댓글 조회
-  @@index([userId])     // 사용자의 댓글 조회
+  @@index([postId]) // 게시글의 댓글 조회
+  @@index([userId]) // 사용자의 댓글 조회
+}
+
+model PostLike {
+  id        BigInt       @id @default(autoincrement())
+
+  userId    String?
+  user      User?        @relation(fields: [userId], references: [id])
+
+  anonymId  String?
+  anonym    Connection?  @relation(fields: [anonymId],references: [id])
+
+  postId    Int
+  post      Post         @relation(fields: [postId], references: [id])
+
+  @@unique([postId, userId])
+  @@unique([postId, anonymId])
+}
+
+model CommentLike {
+  id        BigInt       @id @default(autoincrement())
+
+  userId    String?
+  user      User?        @relation(fields: [userId], references: [id])
+
+  anonymId  String?
+  anonym    Connection?  @relation(fields: [anonymId],references: [id])
+
+  commentId Int
+  comment   Comment      @relation(fields: [commentId], references: [id])
+
+  @@unique([commentId, userId])
+  @@unique([commentId,anonymId])
 }

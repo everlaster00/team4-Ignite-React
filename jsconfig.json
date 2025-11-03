@@ -2,14 +2,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
       "@@/*": ["./src/components/*"],
-      "@prj/*": ["./src/app/products/*"] 
+      "@prj/*": ["./src/app/products/*"] ,
+      "@/*": ["./src/*"]
     }
   },
   "include": [
-    "src/**/*.js", 
     "src/**/*.jsx",
+    "src/**/*.js", 
+    "src/**/*.tsx",
     "src/**/*.ts",
   ],
   "exclude": [

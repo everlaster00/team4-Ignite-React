@@ -23,18 +23,18 @@
       }
     ],
     "paths": {
-      "root/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./src/*"
-      ],
       "@@/*": [
         "./src/components/*"
       ],
       "@prj/*": [
         "./src/app/products/*"
-      ]
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "root/*": [
+        "./*"
+      ],
     },
     "strictNullChecks": true
   },
