@@ -57,3 +57,26 @@ html {
     75% { color: #FACC15; }
     100% { color: #E2E8F0; }
 }
+
+
+@layer utilities {
+    @keyframes jump-and-land {
+        0%, 100% { 
+        transform: translateY(0); /* 시작과 끝: 제자리 */
+        }
+        50% { 
+        transform: translateY(-0.7rem); /* 중간: 위로 튀어 오름 (점프 높이) */
+        }
+    }
+
+    /* 2. hover 시 애니메이션을 실행하는 유틸리티 클래스 정의 */
+    .animate-on-group-hover {
+        transition: transform 0.4s ease-out; /* 기본 트랜지션 (선택적) */
+    }
+
+    /* 3. 부모가 hover 되었을 때, jump-and-land 애니메이션 1회 실행 */
+    .group:hover .animate-on-group-hover {
+        /* 애니메이션 이름 / 지속시간 / 가속도 / 재생 횟수(1회) */
+        animation: jump-and-land 0.4s ease-out 1; 
+    }
+}

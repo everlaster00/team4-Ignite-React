@@ -9,7 +9,6 @@
  * @param {string} props.bio - 팀원 자기소개
  */
 export default function TeamCard({ id, avatarUrl, name, role, bio }) {
-  console.log(id);
   return (
     <div id={`Member-${id}`} className={`w-90 sm:w-130 md:w-160 lg:w-220 mx-auto bg-white shadow-xl rounded-xl overflow-hidden 
     transform hover:scale-[1.02] transition-transform duration-300 ease-in-out border-t-8 border-amber-500`}>

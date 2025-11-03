@@ -6,7 +6,6 @@ import "@/test/toast/InitGlobalToast";
 import Toast from "@/test/toast/Toast";
 import "./globals.css";
 
-console.log('오버워치: ',overWatch.variable);
 
 export const metadata = {
   title: "이그나이트 쇼케이스",
