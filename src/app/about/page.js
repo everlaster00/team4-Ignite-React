@@ -15,7 +15,7 @@ export async function generateMetadata() {
 export default function TeamPage() {
 
   return (
-    <div className="AboutBody flex flex-row justify-center bg-gray-50 h-screen overflow-hidden" >
+    <div className="AboutBody flex flex-row justify-center bg-gray-50 h-screen overflow-hidden scroll-behavior:smooth relative" >
       <SidebarOfMemberNav />
       <div className="AboutContentBox flex flex-col max-w-14/15 mx-auto py-10 md:14 px-4 sm:px-6 lg:px-8 felx-1 overflow-y-auto">
 
