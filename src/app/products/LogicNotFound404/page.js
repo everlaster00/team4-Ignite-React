@@ -12,7 +12,7 @@ export default function QuotesPage() {
     try {
       setLoading(true);
       setError("");
-      const res = await fetch("/api/LogicNotFound404/random", { cache: "no-store" });
+      const res = await fetch("/api/products/LogicNotFound404/random", { cache: "no-store" });
       if (!res.ok) throw new Error("명언을 가져오지 못했어요.");
       const data = await res.json();
       setQuote(data.quote);
