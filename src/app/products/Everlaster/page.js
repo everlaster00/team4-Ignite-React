@@ -2,6 +2,7 @@
 
 import IgniteFont from "root/src/components/IgniteFont";
 import MyCalculator from "./MySrc/MyCalculator";
+import CornerFloatingNav from "@@/members/CornerFloatingNav";
 
 // 1. 메타데이터 생성 함수
 // Next.js 13+ App Router의 서버 컴포넌트에서 동작해요.
@@ -24,8 +25,15 @@ export async function generateMetadata() {
 // 2. 페이지 컴포넌트 (기본 export)
 // 서버 컴포넌트로 동작하며, Tailwind CSS를 사용했어요.
 export default function EverlasterShowCaseHome() {
+
+  const products = [
+    { title:"이거 나이뜨 한 계산기", url:"/products/Everlaster/"},
+    { title:"이거 나이뜨 한 계산기2",url:"/products/luke/"}
+  ];
+
   return (
     <div className="flex flex-col font-mono items-center mt-3 mx-10 ">
+      <CornerFloatingNav index={0} projectLinks={products}/>
       
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8"> 
 

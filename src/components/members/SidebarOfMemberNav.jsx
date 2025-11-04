@@ -10,7 +10,7 @@ import Link from 'next/link';
 export default function SidebarOfMemberNav() {
 
   return (
-    <aside className="SideNav sticky shrink-0 overflow-y-auto SCROLLHIDDEN left-0 top-0 flex flex-col bg-teal-300/80 overflow-hidden h-screen w-28 md:w-32 lg:w-38 px-2 lg:px-5 space-y-2 z-index-1 pb-10">
+    <aside className="SideNav sticky shrink-0 overflow-y-auto SCROLLHIDDEN left-0 top-0 flex flex-col bg-teal-300/80 w-28 md:w-32 lg:w-38 px-2 lg:px-5 space-y-2 z-index-1 pb-18">
 
       <div className='SideNavBody flex flex-col justify-center items-center relative flex-wrap'>
 
