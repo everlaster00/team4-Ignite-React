@@ -33,6 +33,20 @@ model Contact{
   title       String
   message     String
   createdAt   DateTime @default(now())
-  status      String   @default("pending") // pending | replied | closed
+  status      String   @default("답변 대기중") // 답변 대기중 | 답변완료
+
+  answers   ContactAnswer[]
 }
 
+model ContactAnswer {
+  id         String       @id @default(uuid())
+  contactId  Int
+  contact    Contact   @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  adminName  String   // 답변자 표시(선택)
+  adminEmail String   // 답변자 이메일(선택)
+  content    String    // 답변 본문(필수)
+  createdAt  DateTime  @default(now())
+  
+  @@index([contactId, createdAt])
+}

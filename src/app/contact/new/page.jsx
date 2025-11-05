@@ -1,3 +1,4 @@
+// src/app/contact/new/page.jsx
 import Link from 'next/link';
 import NewForm from './NewForm';
 import { createContact } from './actions';
@@ -6,7 +7,7 @@ import { createContact } from './actions';
 
 export default async function ContactNewPage({ searchParams }) {
   const sp = await searchParams;
-  const success = searchParams?.success;                 // ✅ await로 풀기
+  const success = sp.success;              
     
   return (
     <div className="min-h-screen bg-gray-50 p-6">

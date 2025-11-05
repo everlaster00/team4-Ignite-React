@@ -1,13 +1,15 @@
 // src/app/contact/[id]/page.jsx
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { prismaJH } from '@/lib/prismaJH';
+import { prismaJH as prisma } from '@/lib/prismaJH';
 
 export const dynamic = 'force-dynamic';
 
 export default async function ContactDetailPage({ params }) {
-  const id = params.id;
-  const item = await prismaJH.Contact.findUnique({
+  const p = await params;
+  
+  const id = p.id;
+  const item = await prisma.Contact.findUnique({
     where: { id: Number(id) },
   });
 
@@ -31,14 +33,12 @@ export default async function ContactDetailPage({ params }) {
             <div className="text-xl font-semibold">{item.title}</div>
             <span
               className={`inline-flex items-center rounded-full px-2 py-1 text-xs ${
-                item.status === 'closed'
+                item.status === '답변 대기중'
                   ? 'bg-gray-200 text-gray-700'
-                  : item.status === 'pending'
-                  ? 'bg-yellow-100 text-yellow-800'
                   : 'bg-green-100 text-green-800'
               }`}
             >
-              {item.status || 'open'}
+              {item.status || '답변 대기중'}
             </span>
           </div>
 

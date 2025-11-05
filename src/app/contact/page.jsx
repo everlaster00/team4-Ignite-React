@@ -1,3 +1,4 @@
+// src/app/contact/page.jsX
 import Link from 'next/link';
 import { prismaJH as prisma } from '@/lib/prismaJH';
 
@@ -5,15 +6,20 @@ export const dynamic = 'force-dynamic';
 
 const PAGE_SIZE = 10;
 
-export default async function ContactPage({ searchParams }) {
-  const page = Math.max(1, Number(searchParams?.page || 1));
-  const q = (searchParams?.q || '').trim();
+export default async function ContactPage ({ searchParams }) {
+  const sp = await searchParams;
+
+  const rawPage = Array.isArray(sp?.page) ? sp.page[0] : sp?.page;
+  const page = Math.max(1, Number(rawPage ?? 1));
+
+  const rawQ = Array.isArray(sp?.q) ? sp.q[0] : sp?.q;
+  const q = String(rawQ ?? '').trim();
 
   const where = q
     ? {
         OR: [
           { title: { contains: q } },
-          { content: { contains: q } },
+          { message: { contains: q } },
           { name: { contains: q } },
           { email: { contains: q } },
         ],
@@ -114,14 +120,12 @@ export default async function ContactPage({ searchParams }) {
                       <td className="p-3">
                         <span
                           className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${
-                            it.status === 'closed'
+                            it.status === '답변 대기중'
                               ? 'bg-gray-200 text-gray-700'
-                              : it.status === 'pending'
-                              ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-green-100 text-green-800'
                           }`}
                         >
-                          {it.status || 'open'}
+                          {it.status || '답변 대기중'}
                         </span>
                       </td>
                       <td className="p-3 text-gray-500">
