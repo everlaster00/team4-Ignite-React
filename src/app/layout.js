@@ -1,10 +1,8 @@
 import { yChoi, overWatch } from "../fonts/local";
+import "./globals.css";
 import Navigation from "./Navigation";
 import IgFooter from "./IgFooter";
 import ClientWrapper from "@@/ClientWrapper";
-import "@/test/toast/InitGlobalToast";
-import Toast from "@/test/toast/Toast";
-import "./globals.css";
 
 
 export const metadata = {
@@ -16,15 +14,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko" className={`${yChoi.variable} ${overWatch.variable}`}>
       <body className="flex flex-col min-h-screen">
-        <ClientWrapper />
-        <Toast />
-        <header>
-          <Navigation />
-        </header>
-        <main className="flex-1">{children}</main>
-        <footer>
-          <IgFooter />
-        </footer>
+        <ClientWrapper>
+          <header>
+            <Navigation />
+          </header>
+          <main className="flex-1">{children}</main>
+          <footer>
+            <IgFooter />
+          </footer>
+        </ClientWrapper>
       </body>
     </html>
   );
