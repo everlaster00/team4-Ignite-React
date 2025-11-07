@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from "react"
 
-const REFRESH_TIME = 15 * 60 * 1000; // 15분
+const REFRESH_TIME = 60 * 60 * 1000; // 1시간
 
 export default function AuthRefresher() {
   const intervalRef = useRef(null);

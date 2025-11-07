@@ -4,13 +4,15 @@ import { NextResponse } from 'next/server';
 import { prismaMain } from '@/lib/prismaMain';
 import { v4 as uuidv4 } from 'uuid';
 
+const MAX_IP_HISTORY = 5; //한 컴퓨터로 사용 될 수 있을 ip의 합리적 수
+
 // IP 추출 헬퍼 함수 (Vercel, Cloudflare, 일반 서버 대응)
 function getClientIp(headersList) {
   return (
     headersList.get('x-forwarded-for')?.split(',')[0].trim() ||
     headersList.get('x-real-ip') ||
     headersList.get('cf-connecting-ip') ||
-    'unknown'
+    '0.0.0.0'
   );
 }
 
@@ -36,7 +38,7 @@ export async function POST() {
       await prismaMain.connection.create({
         data: {
           id: connectionId,
-          ipAddress: clientIp,
+          ipAddress: [clientIp],
         },
       });
 
@@ -60,7 +62,7 @@ export async function POST() {
         await prismaMain.connection.create({
           data: {
             id: connectionId,
-            ipAddress: clientIp,
+            ipAddress: [clientIp],
           },
         });
 
@@ -73,10 +75,22 @@ export async function POST() {
       } 
       // 케이스 2-2: 정상 방문자 → updateAt 갱신 + IP 업데이트
       else {
+        const existingIpList = connection.ipAddress || [];
+        let newIpList = existingIpList;
+
+        if (!existingIpList.includes(clientIp)) {
+          newIpList = [clientIp,...existingIpList.filter(ip => ip !== clientIp)];
+          newIpList = newIpList.slice(0,MAX_IP_HISTORY);
+
+          if (process.env.NODE_ENV === 'development') {
+            console.warn(`⚠️ Connection ID ${connectionId}: 새로운 IP ${clientIp}목록에 추가됨.`);
+          }
+        }
+
         await prismaMain.connection.update({
           where: { id: connectionId },
           data: { 
-            ipAddress: clientIp, // IP 변경 추적 (Wi-Fi → LTE 등)
+            ipAddress: newIpList, // IP 변경 추적 (Wi-Fi → LTE 등)
           },
         });
 

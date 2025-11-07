@@ -27,7 +27,7 @@ enum Role {
 
 model Connection {
   id             String           @id @default(uuid())
-  ipAddress      String
+  ipAddress      String[]
   updateAt       DateTime         @updatedAt
   postLikes      PostLike[]
   commentLikes   CommentLike[]
