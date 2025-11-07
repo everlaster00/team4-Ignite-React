@@ -50,3 +50,12 @@ model ContactAnswer {
   
   @@index([contactId, createdAt])
 }
+
+model DevQuote {
+  id        Int      @id @default(autoincrement())
+  text      String
+  author    String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
