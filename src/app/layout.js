@@ -3,7 +3,6 @@
 import Navigation from "./Navigation";
 import IgFooter from "./igFooter";
 import ClientWrapper from "@@/ClientWrapper";
-import Toast from "@/test/toast/Toast";
 import "./globals.css";
 
 // 구시스템 환경에서의 폰트 현시스템에서 호환안돼서 주석처리
@@ -33,7 +32,6 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <body className="flex flex-col min-h-screen">
         <ClientWrapper />
-        <Toast />
         <header>
           <Navigation />
         </header>
