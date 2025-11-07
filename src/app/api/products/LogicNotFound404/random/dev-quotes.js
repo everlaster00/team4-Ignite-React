@@ -1,3 +1,4 @@
+// src/app/api/products/LogicNotFound404/random/dev-quotes.js
 export const DEV_QUOTES = [
   { id: 1, text: "Talk is cheap. Show me the code.", author: "Linus Torvalds" },
   { id: 2, text: "Programs must be written for people to read.", author: "Harold Abelson" },
