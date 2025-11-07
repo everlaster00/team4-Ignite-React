@@ -11,7 +11,6 @@ function getMemberFolders() {
   try {
     // 1. fs.readdirSync로 폴더(파일) 목록을 읽기
     const folderNames = fs.readdirSync(targetDirectory);
-    globalThis.showToast('서버에서 사용되는 토스트 예시입니다')
     
     const memberFolders = folderNames.filter(name => 
       !name.startsWith('[') && !name.startsWith('_') && !name.includes('.')
@@ -33,7 +32,6 @@ export default function products() {
     <div className="p-8">
       <h1 className="text-4xl font-bold mb-4">갤러리 페이지</h1>
       <p className="text-lg text-gray-600 mb-10">팀원들의 최근 작품,또는 대표 작품들을 한눈에 뿌려주는 페이지입니다.</p>
-      { globalThis.showToast('서버에서 사용되는 토스트 예시입니다')}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {members.map((memberId) => (
           <GalleryCard key={memberId} nick={memberId} />
