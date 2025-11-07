@@ -14,25 +14,22 @@
     "gen:pjh": "npx prisma generate --schema=./prisma/PJH.prisma",
     "gen:jw": "npx prisma generate --schema=./prisma/JW.prisma",
     "gen:all": "npm run gen:main && npm run gen:km && npm run gen:nc && npm run gen:jh && npm run gen:pjh && npm run gen:jw",
-    "mig:main": "npx prisma migrate dev --schema=./prisma/Main.prisma",
-    "mig:km": "npx prisma migrate dev --schema=./prisma/KM.prisma",
-    "mig:nc": "npx prisma migrate dev --schema=./prisma/NC.prisma",
-    "mig:jh": "npx prisma migrate dev --schema=./prisma/JH.prisma",
-    "mig:pjh": "npx prisma migrate dev --schema=./prisma/PJH.prisma",
-    "mig:jw": "npx prisma migrate dev --schema=./prisma/JW.prisma"
+    "mig:main": "npx prisma migrate dev --schema=./prisma/Main.prisma --name",
+    "mig:km": "npx prisma migrate dev --schema=./prisma/KM.prisma --name",
+    "mig:nc": "npx prisma migrate dev --schema=./prisma/NC.prisma --name",
+    "mig:jh": "npx prisma migrate dev --schema=./prisma/JH.prisma --name",
+    "mig:pjh": "npx prisma migrate dev --schema=./prisma/PJH.prisma --name",
+    "mig:jw": "npx prisma migrate dev --schema=./prisma/JW.prisma --name"
   },
   "dependencies": {
     "@prisma/client": "^6.17.1",
-    "bcrypt": "^6.0.0",
-    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.552.0",
     "next": "15.5.5",
     "prisma": "^6.17.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-icons": "^5.5.0",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
-    "uuid": "^13.0.0",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
