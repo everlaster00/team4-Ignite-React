@@ -3,7 +3,7 @@ import TeamCard from './TeamCard';
 import IgniteFont from '@@/IgniteFont';
 import SidebarOfMemberNav from '@@/members/SidebarOfMemberNav';
 import MEMBER from '@@/members/memberInfo';
-import showCaseBg from "@/assets/icons/LogoIcon.webp";
+import aboutBG from "@/assets/images/aboutBG.webp";
 
 // 메타데이터는 서버에서 정의
 export async function generateMetadata() {
@@ -15,20 +15,19 @@ export async function generateMetadata() {
 
 export default function TeamPage() {
 
-  const backgroundImage = `url(${showCaseBg.src})`;
+  const backgroundImage = `url(${aboutBG.src})`;
+  console.log(backgroundImage);
 
   const backgroundStyle = {
     backgroundImage: backgroundImage,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundAttachment: "fixed",
+    backgroundSize: "100% 100%",
+    backgroundPosition: "top center",
   };
 
   return (
-    <div className="AboutBody flex flex-row relative justify-center bg-gray-50 h-screen overflow-hidden" >
+    <div className="AboutBody flex flex-row relative justify-center bg-gray-900 h-screen overflow-auto" >
       <SidebarOfMemberNav />
-      <div className="AboutContentBox flex flex-col max-w-14/15 mx-auto py-10 md:14 px-4 sm:px-6 lg:px-8 flex-1 overflow-y-auto"
-        style={backgroundStyle} >
+      <div style={backgroundStyle} className={`AboutContentBox flex flex-col w-full max-w-14/15 mx-auto py-10 md:14 px-4 sm:px-6 lg:px-8 flex-1 overflow-y-auto bg-local SCROLLHIDDEN`} >
 
         
         {/* 📌 페이지 제목 */}

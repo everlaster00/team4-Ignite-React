@@ -42,7 +42,7 @@ export default function CornerFloatingNav({ index , projectLinks }) {
   const isShow = itemsShow ? "flex flex-col justify-center items-center" : "hidden";
 
   return (
-    <div className="CornerNav fixed top-21 duration-400 -left-6 hover:left-2 cursor-pointer group z-50"
+    <div className="CornerNav fixed top-21 duration-400 -left-6 hover:left-2 max-h-screen overflow-auto cursor-pointer group z-50"
       onClick={handleClick}>
       <div className="
         CornerNavRayout shrink-0 p-1 hover:p-2 not-hover:max-w-17 not-hover:max-h-17 duration-400 

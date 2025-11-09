@@ -1,3 +1,4 @@
+//src/app/layout.js
 import { yChoi, overWatch } from "../fonts/local";
 import "./globals.css";
 import Navigation from "./Navigation";
@@ -12,7 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko" className={`${yChoi.variable} ${overWatch.variable}`}>
+    <html lang="ko" data-scroll-behavior="smooth" className={`${yChoi.variable} ${overWatch.variable}`}>
       <body className="flex flex-col min-h-screen">
         <ClientWrapper>
           <header>

@@ -48,7 +48,8 @@ export default function GalleryCard({nick,icon, index}) {
           src={icon} 
           alt={`${nick}님의 작품`} 
           fill 
-          objectFit="cover" 
+          style={{ objectFit: 'cover' }}
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           className="transition-transform duration-500 group-hover:scale-[1.08] saturate-150" 
         />
       </div>

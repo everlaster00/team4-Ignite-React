@@ -1,6 +1,5 @@
 // src/app/products/Everlaster/MySrc/MyCalculator.jsx
-
-'use client'; // 👈 훅(useState, useEffect 등) 사용을 위한 필수 디렉티브!
+'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 
@@ -115,7 +114,7 @@ const MyCalculator = () => {
           <button onClick={() => handleButtonClick('.')} className="p-4 bg-gray-200 rounded text-xl hover:bg-gray-300">.</button>
           <button onClick={() => handleButtonClick('+')} className="p-4 bg-blue-500 text-white rounded text-xl hover:bg-blue-600">+</button>
           
-          <button onClick={() => handleButtonClick('=')} className="p-4 bg-orange-500 text-white rounded text-xl hover:bg-orange-600 col-span-4 mt-2">=</button>
+          <button onClick={() => handleButtonClick('=')} className="p-4 bg-orange-500 text-white rounded text-xl hover:bg-orange-600 col-span-3">=</button>
           
         </div>
 
