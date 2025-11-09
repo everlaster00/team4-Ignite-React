@@ -1,4 +1,5 @@
 import PostTester from '@/test/db_tester/PostTester';
+import ErrorTriggerDev from '@/test/ErrorTriggerDev'
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <p className="text-lg text-gray-600">이 페이지의 주소는 / 입니다.</p>
 
       <div className='TestPrisma'>
+        <ErrorTriggerDev />
         <PostTester />
       </div>
     </div>

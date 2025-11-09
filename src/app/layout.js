@@ -1,5 +1,5 @@
-// import { Geist, Geist_Mono } from "next/font/google";
-// import { Inter } from 'next/font/google';
+//src/app/layout.js
+import { yChoi, overWatch } from "../fonts/local";
 import Navigation from "./Navigation";
 import IgFooter from "./igFooter";
 import ClientWrapper from "@@/ClientWrapper";
@@ -29,7 +29,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko">
+    <html lang="ko" data-scroll-behavior="smooth" className={`${yChoi.variable} ${overWatch.variable}`}>
       <body className="flex flex-col min-h-screen">
         <ClientWrapper />
         <header>

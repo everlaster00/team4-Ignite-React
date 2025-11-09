@@ -1,15 +1,27 @@
-'use client'
-import { useEffect, useRef } from "react"
+//src/lib/auth/AuthRefresher.js
 
-const REFRESH_TIME = 60 * 60 * 1000; // 1시간
+'use client'
+import { useCallback, useEffect, useRef } from "react"
+
+const REFRESH_TIME = 30 * 60 * 1000; // 30분
 
 export default function AuthRefresher() {
   const intervalRef = useRef(null);
   const isRefreshingRef = useRef(false);
+  const lastRefreshTimeRef = useRef(0);
 
-  async function refreshConnection() {
+  const shouldRefresh = () => {
+    return Date.now() - lastRefreshTimeRef.current >= REFRESH_TIME;
+  }
+
+  
+  const refreshConnection = useCallback(async () => {
     // 중복 호출 방지
     if (isRefreshingRef.current) return;
+
+    if (!shouldRefresh()) {
+      return;
+    }
     
     isRefreshingRef.current = true;
     
@@ -25,6 +37,7 @@ export default function AuthRefresher() {
       }
       
       const data = await response.json();
+      lastRefreshTimeRef.current = Date.now();
       
       // 개발 환경에서만 로그
       if (process.env.NODE_ENV === 'development') {
@@ -39,10 +52,10 @@ export default function AuthRefresher() {
     } finally {
       isRefreshingRef.current = false;
     }
-  }
+  },[]);
 
   useEffect(() => {
-    // 15분마다 주기적 갱신
+    // 주기적 갱신
     intervalRef.current = setInterval(refreshConnection, REFRESH_TIME);
     
     // 페이지 포커스 시 갱신 (탭 전환 후 돌아왔을 때)
@@ -67,7 +80,7 @@ export default function AuthRefresher() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('focus', handleFocus);
     };
-  }, []);
+  }, [refreshConnection]);
 
   return null;
 }
