@@ -25,9 +25,9 @@ export default function TeamPage() {
   };
 
   return (
-    <div className="AboutBody flex flex-row relative justify-center bg-gray-900 h-screen overflow-auto" >
+    <div className="AboutBody flex flex-row relative justify-center bg-gray-900 h-screen" >
       <SidebarOfMemberNav />
-      <div style={backgroundStyle} className={`AboutContentBox flex flex-col w-full max-w-14/15 mx-auto py-10 md:14 px-4 sm:px-6 lg:px-8 flex-1 overflow-y-auto bg-local SCROLLHIDDEN`} >
+      <div style={backgroundStyle} className={`AboutContentBox flex flex-col w-full max-w-14/15 mx-auto py-10 md:14 px-4 sm:px-6 lg:px-8 flex-1 overflow-y-auto bg-local SCROLLHIDDEN overscroll-y-auto`} >
 
         
         {/* 📌 페이지 제목 */}

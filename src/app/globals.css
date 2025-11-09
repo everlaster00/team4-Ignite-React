@@ -25,7 +25,7 @@ html {
     -ms-overflow-style: none;
 
     -webkit-overflow-scrolling: auto;
-    overscroll-behavior: contain;
+    overscroll-behavior: auto;
     scroll-behavior: smooth;    /* 스크롤 부드럽게 */
     box-shadow: none !important;
 }

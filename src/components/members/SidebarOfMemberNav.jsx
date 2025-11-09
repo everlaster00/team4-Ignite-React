@@ -44,7 +44,7 @@ export default function SidebarOfMemberNav() {
 
       <aside 
         className={`
-          SideNav shrink-0 overflow-y-auto SCROLLHIDDEN
+          SideNav shrink-0 SCROLLHIDDEN overflow-y-auto 
           fixed top-0 left-0 h-full
           flex flex-col bg-teal-300/80 w-48 
           px-2 lg:px-5 space-y-2 z-30 pb-18
