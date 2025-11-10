@@ -41,7 +41,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="z-index-50 w-full py-2 md:py-4 px-6 md:px-12 z-50 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg border-b border-gray-800">
+    <nav className="Navigation z-index-50 w-full py-2 md:py-4 px-6 md:px-12 z-50 bg-black bg-opacity-50 backdrop-filter backdrop-blur-lg border-b border-gray-800">
       <div className="flex items-center justify-between">
         <div className='TitleBox flex flex-row items-center'>
           <Image src={logo} alt="Ignite Logo" className="inline-block size-5 sm:size-6 md:size-7 mr-2 rounded-full" />
@@ -51,7 +51,7 @@ export default function Navigation() {
         </div>
         <nav>
           <ul className="flex space-x-1 md:space-x-3 text-gray-300 text-xs sm:text-base md:text-lg lg:text-xl  ">
-            <li><Link href="/" className={getNavItemClass("/")}><NavText href="/" >홈</NavText></Link></li>
+            <li className='hidden sm:inline'><Link href="/" className={getNavItemClass("/")}><NavText href="/" >홈</NavText></Link></li>
             <li><Link href="/about" className={getNavItemClass("/about")}><NavText href="/about" >소개</NavText></Link></li>
             <li><Link href="/products" className={getNavItemClass("/products")}><NavText href="/products" >갤러리</NavText></Link></li>
             <li><Link href="/fire_board" className={getNavItemClass("/fire_board")}><NavText href="/fire_board" >파이어 보드</NavText></Link></li>
