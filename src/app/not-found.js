@@ -18,7 +18,7 @@ export default function NotFound() {
       />
 
       {/* 텍스트 */}
-      <h1 className="text-6xl font-extrabold text-blue-600">Oops!</h1>
+      <h1 className="text-4xl font-extrabold text-blue-600">미안해요.. ㅠㅠ</h1>
       <h2 className="text-2xl font-bold mt-3 text-gray-800 dark:text-gray-200">
         페이지를 찾을 수 없습니다 (404)
       </h2>
