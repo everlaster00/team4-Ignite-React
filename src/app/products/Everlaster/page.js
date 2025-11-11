@@ -32,14 +32,14 @@ export default function EverlasterShowCaseHome() {
   ];
 
   return (
-    <div className="flex flex-col font-mono items-center mt-3 mx-10 ">
+    <div className="flex flex-col font-mono justify-center items-center mt-3 mx-10 h-full">
       <CornerFloatingNav index={0} projectLinks={products}/>
       
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8"> 
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 items-center justify-center my-auto gap-8"> 
 
         {/* --- 1. 타이틀 & Ignite 그룹 (왼쪽/상단) --- */}
         {/* 이 div로 Ignite와 TitleBox를 세로로 묶고, 이 묶음 자체를 중앙 정렬한다 안카나. */}
-        <div className="flex flex-col items-center w-full"> 
+        <div className="flex flex-col items-center w-full my-auto"> 
             
             {/* Ignite 글자: 중앙에 위치하고 타이틀 박스와 묶인다! */}
             <p className="m-1 md:m-3 text-base md:text-xl xl:text-2xl">
@@ -73,9 +73,9 @@ export default function EverlasterShowCaseHome() {
         </div>
 
         {/* --- 2. 계산기 영역 (오른쪽/하단) --- */}
-        <article className="w-full m-2">
+        <article className="w-full h-full mx-2 my-auto">
           {/* 계산기 컴포넌트는 항상 이 영역 중앙에 위치하도록 Flex를 적용한다 안카나. */}
-          <div className="flex justify-center items-center w-full h-full">
+          <div className="flex justify-center items-center w-full">
             {/* <Calculator /> */}
             <div className="p-4 bg-gray-100 rounded-lg border border-gray-300 w-full text-center">
               <MyCalculator />
