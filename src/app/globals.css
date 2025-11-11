@@ -5,6 +5,23 @@
     --font-overwatch: var(--font-overwatch);
 }
 
+:root {
+    --ignite-orange-50: #fff7f2;
+    --ignite-orange-100: #ffefdf;
+    --ignite-orange-500: #ff7a18;
+}
+
+@theme {
+    --color-ignite-orange-50: var(--ignite-orange-50);
+    --color-ignite-orange-100: var(--ignite-orange-100);
+    --color-ignite-orange-500: var(--ignite-orange-500);
+}
+
+.ignite-bg {
+    @apply bg-gradient-to-b from-ignite-orange-50 to-white;
+}
+
+
 html {
   /* ⭐ 모든 앵커 이동 및 스크롤 명령이 부드럽게! ⭐ */
     scroll-behavior: smooth; 
