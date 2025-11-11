@@ -19,7 +19,7 @@ export default function IgFooter() {
           <div className="flex flex-col items-center sm:items-start space-y-2">
               
             <p className="flex items-center text-base font-light tracking-wide text-gray-400">
-              <img 
+              <image 
                 src="https://raw.githubusercontent.com/everlaster00/team-4-landing/main/images/LogoIcon.webp" 
                 alt="Team Ignite Logo" 
                 className="max-w-[30px] h-auto mr-2"
