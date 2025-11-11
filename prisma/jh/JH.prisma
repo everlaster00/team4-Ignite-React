@@ -1,0 +1,61 @@
+//npx prisma migrate dev --schema=./prisma/jh/JH.prisma --name message
+//npx prisma migrate reset --schema=./prisma/jh/JH.prisma
+//npx prisma generate --schema=./prisma/jh/JH.prisma
+//npm run gen:all  (모든 db의 클라이언트 생성을 한방에)
+generator JH_client {
+  provider = "prisma-client-js"
+  output = "../../src/generated/prisma-client/jh"
+}
+
+datasource JH_db {
+  provider  = "postgresql"
+  url       = env("JH_DATABASE_URL")
+  directUrl = env("JH_DIRECT_URL")
+}
+
+// 아래 데이터 베이스의 내용이 수정 될 때마다
+// npx prisma migrate dev --스키마 경로 --name 작업내역메시지
+// 배포된 환경에서는 npx prisma migrate deploy
+
+//# 마지막 마이그레이션 되돌리기. 롤백용 (개발 환경) (경고: 모든 데이터 손실))
+// npx prisma migrate reset --스키마 경로
+
+
+model JH_Post {
+  id        String   @id @default(cuid())
+  title     String
+}
+
+model Contact{
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  title       String
+  message     String
+  createdAt   DateTime @default(now())
+  status      String   @default("답변 대기중") // 답변 대기중 | 답변완료
+
+  answers   ContactAnswer[]
+}
+
+model ContactAnswer {
+  id         String       @id @default(uuid())
+  contactId  Int
+  contact    Contact   @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  adminName  String   // 답변자 표시(선택)
+  adminEmail String   // 답변자 이메일(선택)
+  content    String    // 답변 본문(필수)
+  createdAt  DateTime  @default(now())
+  
+  @@index([contactId, createdAt])
+}
+
+model DevQuote {
+  id        Int      @id @default(autoincrement())
+  text      String
+  author    String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
