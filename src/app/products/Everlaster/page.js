@@ -3,6 +3,7 @@
 import IgniteFont from "root/src/components/IgniteFont";
 import MyCalculator from "./MySrc/MyCalculator";
 import CornerFloatingNav from "@@/members/CornerFloatingNav";
+import BackGroundBG from "@/assets/images/EverlasterBG.webp"
 
 // 1. 메타데이터 생성 함수
 // Next.js 13+ App Router의 서버 컴포넌트에서 동작해요.
@@ -32,10 +33,12 @@ export default function EverlasterShowCaseHome() {
   ];
 
   return (
-    <div className="flex flex-col font-mono justify-center items-center mt-3 mx-10 h-full">
+    <div className={`flex flex-col font-mono justify-center items-center pt-3 px-10 h-screen bg-cover bg-center`}
+    style={{backgroundImage: `url('${BackGroundBG.src}')`}} >
+
       <CornerFloatingNav index={0} projectLinks={products}/>
       
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 items-center justify-center my-auto gap-8"> 
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 items-center justify-center my-auto gap-8 overflow-y-auto bg-local SCROLLHIDDEN overscroll-y-auto"> 
 
         {/* --- 1. 타이틀 & Ignite 그룹 (왼쪽/상단) --- */}
         {/* 이 div로 Ignite와 TitleBox를 세로로 묶고, 이 묶음 자체를 중앙 정렬한다 안카나. */}

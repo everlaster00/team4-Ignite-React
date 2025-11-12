@@ -2,7 +2,7 @@
 import { yChoi, overWatch } from "../fonts/local";
 import "./globals.css";
 import Navigation from "./Navigation";
-import IgFooter from "./IgFooter";
+import Footer from "./Footer";
 import ClientWrapper from "@@/ClientWrapper";
 
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
           </header>
           <main className="flex-1">{children}</main>
           <footer>
-            <IgFooter />
+            <Footer />
           </footer>
         </ClientWrapper>
       </body>
