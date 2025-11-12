@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 import ClientWrapper from "@@/ClientWrapper";
+import ScrollToTopBottom from "@@/ScrollToTopBottom";
 
 
 export const metadata = {
@@ -19,7 +20,8 @@ export default function RootLayout({ children }) {
           <header>
             <Navigation />
           </header>
-          <main className="flex-1">{children}</main>
+          <main id="MainFrame" className="flex-1">{children}</main>
+            <ScrollToTopBottom />
           <footer>
             <Footer />
           </footer>
