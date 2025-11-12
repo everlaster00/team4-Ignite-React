@@ -1,0 +1,59 @@
+/* twinkle 별 */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.twinkle {
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+/* 랜딩 fade out */
+.fadeOut {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* 버튼 pulse */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* typewriter effect */
+.typewriter {
+  overflow: hidden;
+  border-right: 0.15em solid #fff;
+  white-space: nowrap;
+  animation: typing 2s steps(12), blink 0.7s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 12ch }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+/* 오로라 배경 */
+.bgAurora {
+  background: radial-gradient(circle at 50% 50%, #2c3e50, #000000 80%);
+  animation: aurora 10s infinite alternate;
+}
+
+@keyframes aurora {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 50% 50%; }
+  100% { background-position: 100% 0%; }
+}
