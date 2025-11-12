@@ -5,20 +5,14 @@
     --font-overwatch: var(--font-overwatch);
 }
 
-:root {
-    --ignite-orange-50: #fff7f2;
-    --ignite-orange-100: #ffefdf;
-    --ignite-orange-500: #ff7a18;
-}
-
 @theme {
-    --color-ignite-orange-50: var(--ignite-orange-50);
-    --color-ignite-orange-100: var(--ignite-orange-100);
-    --color-ignite-orange-500: var(--ignite-orange-500);
+    --color-igniteOrange-50: oklch(98.3% 0.021 54.4);  /* #fff7f2 */
+    --color-igniteOrange-100: oklch(95.4% 0.052 54.4); /* #ffefdf */
+    --color-igniteOrange-500: oklch(71.9% 0.158 54.4); /* #ff7a18 */
 }
 
 .ignite-bg {
-    @apply bg-gradient-to-b from-ignite-orange-50 to-white;
+    @apply bg-gradient-to-b from-igniteOrange-500 to-white;
 }
 
 

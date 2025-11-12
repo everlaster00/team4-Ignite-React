@@ -12,7 +12,7 @@ export default function SocketInitializer() {
     
     useEffect(() => {
         // 1. 서버 초기화를 먼저 트리거합니다.
-        fetch('/api/socket'); 
+        fetch('/api/sockets'); 
         
         let socket;
         

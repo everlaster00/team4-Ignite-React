@@ -24,8 +24,6 @@ export default function GalleryCard({nick,icon, index}) {
 
   const cardHeightClass = 'min-h-[300px] md:min-h-[380px]'; 
 
-  const imageSrc = icon || '/assets/icons/LogoIcon.webp';
-
   // 🌟 [디자인] 레이아웃 통일 & 역동적 페이드인 카드 🌟
   const cardBaseClasses = `
     relative overflow-hidden 
@@ -47,7 +45,7 @@ export default function GalleryCard({nick,icon, index}) {
       
       <div className="relative h-full w-full"> 
         <Image 
-          src={imageSrc} 
+          src={icon} 
           alt={`${nick}님의 작품`} 
           fill 
           style={{ objectFit: 'cover' }}
