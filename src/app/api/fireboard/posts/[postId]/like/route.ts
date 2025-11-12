@@ -1,0 +1,1 @@
+//src/app/api/fireboard/posts/[postId]/like/route.ts

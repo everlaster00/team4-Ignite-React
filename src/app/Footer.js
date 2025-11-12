@@ -1,4 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
+import logo from '@/assets/icons/LogoIcon.webp'
+
 const IgniteFont = ({ children }) => <span className="text-amber-400">{children}</span>;
 
 export default function IgFooter() {
@@ -19,8 +22,8 @@ export default function IgFooter() {
           <div className="flex flex-col items-center sm:items-start space-y-2">
               
             <p className="flex items-center text-base font-light tracking-wide text-gray-400">
-              <image 
-                src="https://raw.githubusercontent.com/everlaster00/team-4-landing/main/images/LogoIcon.webp" 
+              <Image
+                src={logo}
                 alt="Team Ignite Logo" 
                 className="max-w-[30px] h-auto mr-2"
               />

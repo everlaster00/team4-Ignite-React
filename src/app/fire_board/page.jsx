@@ -36,8 +36,8 @@ export default function FireBoardPage() {
         <h1 className="text-4xl font-bold text-igniteOrange-500 flex items-center gap-2">
           🔥 Fire Board
         </h1>
-        <Link href="/fireboard/write">
-          <button className="bg-amber-500 hover:bg-amber-700 text-white font-semibold rounded-sm p-1">
+        <Link href="/fire_board/write">
+          <button className="bg-igniteOrange-500 hover:bg-amber-700 text-white font-semibold rounded-sm p-1">
             점화하기
           </button>
         </Link>
