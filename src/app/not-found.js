@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import IMG_NotFound from '@/assets/images/NotFound.webp';
+import IMG_NotFound from '@/assets/images/NotFound2.webp';
 
 export default function NotFound() {
   return (
