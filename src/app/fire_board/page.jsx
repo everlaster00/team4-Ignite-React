@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import FireCard from "./components/FireCard";
+import LoadingSpinner from "@@/LoadingSpinner";
 
 export default function FireBoardPage() {
   const [posts, setPosts] = useState([]);
@@ -31,13 +32,13 @@ export default function FireBoardPage() {
   }, [sort]);
 
   return (
-    <div className="max-w-5xl mx-auto p-6 space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-4xl font-bold text-igniteOrange-500 flex items-center gap-2">
-          🔥 Fire Board
+    <>
+      <div className="flex justify-between items-center pb-3 border-b-1 border-amber-200">
+        <h1 className="text-4xl font-bold  flex items-center gap-2">
+          🔥<span className="bg-gradient-to-t from-igniteOrange-500 to-amber-400/80 bg-clip-text text-transparent">Fire Board</span>
         </h1>
         <Link href="/fire_board/write">
-          <button className="bg-igniteOrange-500 hover:bg-amber-700 text-white font-semibold rounded-sm p-1">
+          <button className="bg-igniteOrange-500 hover:bg-amber-700 text-white font-semibold rounded-lg p-2">
             점화하기
           </button>
         </Link>
@@ -52,15 +53,15 @@ export default function FireBoardPage() {
         </button>
       </div>
 
-      <div className="grid gap-4">
+      <div className="FBOARD-border-1 grid gap-4">
         {loading ? (
-          <div className="text-center py-20">로딩 중...</div>
+          <div className="text-center py-20"><LoadingSpinner/>로딩 중...</div>
         ) : posts.length === 0 ? (
-          <div className="text-center py-20 text-gray-500">아직 점화된 글이 없습니다. 먼저 한 줄 점화해보세요!</div>
+          <div className="text-center py-20 text-gray-500 truncate">아직 점화된 글이 없습니다. 먼저 한 줄 점화해보세요!</div>
         ) : (
           posts.map((p) => <FireCard key={p.id} post={p} />)
         )}
       </div>
-    </div>
+    </>
   );
 }

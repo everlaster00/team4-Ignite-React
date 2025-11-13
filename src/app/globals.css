@@ -11,10 +11,13 @@
     --color-igniteOrange-500: oklch(71.9% 0.158 54.4); /* #ff7a18 */
 }
 
-.ignite-bg {
+.bg-ignite {
     @apply bg-gradient-to-b from-igniteOrange-500 to-white;
 }
 
+.FBOARD-border-1 {
+    @apply border-1 border-amber-700 shadow-xl shadow-igniteOrange-50 rounded-2xl
+}
 
 html {
   /* ⭐ 모든 앵커 이동 및 스크롤 명령이 부드럽게! ⭐ */

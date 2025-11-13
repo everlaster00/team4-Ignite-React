@@ -3,15 +3,21 @@
 
 import { useState , useEffect, useRef } from 'react';
 import Image from 'next/image';
-import testImg1 from '@/assets/images/aboutBG.webp';
-import testImg2 from '@/assets/images/showCaseBg.jpg';
-import testImg3 from '@/assets/images/NotFound.webp';
+import ppt1 from '@/assets/ppt/ppt1.webp';
+import ppt2 from '@/assets/ppt/ppt2.webp';
+import ppt3 from '@/assets/ppt/ppt3.webp';
+import ppt4 from '@/assets/ppt/ppt4.webp';
+import ppt5 from '@/assets/ppt/ppt5.webp';
+import ppt6 from '@/assets/ppt/ppt6.webp';
 
 // ppt 슬라이드 데이터
 const slides = [
-  { id: 1, imageSrc: testImg1, title: '팀 프로젝트 소개' },
-  { id: 2, imageSrc: testImg2, title: '핵심 기능' },
-  { id: 3, imageSrc: testImg3, title: '낫 파운드' },
+  { id: 1, imageSrc: ppt1, title: 'ppt1' },
+  { id: 2, imageSrc: ppt2, title: 'ppt2' },
+  { id: 3, imageSrc: ppt3, title: 'ppt3' },
+  { id: 4, imageSrc: ppt4, title: 'ppt4' },
+  { id: 5, imageSrc: ppt5, title: 'ppt5' },
+  { id: 6, imageSrc: ppt6, title: 'ppt6' },
 ];
 
 //세션 스토리지
@@ -78,7 +84,7 @@ export default function PptSlider() {
     <div
       ref={containerRef}
       onClick={handleScroll}
-      className="PptContainer flex w-screen h-screen overflow-x-scroll snap-x snap-mandatory scroll-smooth cursor-pointer"
+      className="PptContainer bg-gray-900 flex w-screen h-screen overflow-x-scroll snap-x snap-mandatory scroll-smooth cursor-pointer"
       style={{ scrollSnapType: 'x mandatory' }}
     >
 
@@ -92,7 +98,7 @@ export default function PptSlider() {
       <Image
         src={slide.imageSrc}
         alt={slide.title || `Slide ${slide.id}`}
-        className="w-full h-full object-cover" // 화면에 꽉 차게!
+        className="w-full h-full object-contain" 
       />
 
       </div>
