@@ -46,39 +46,62 @@ export default async function ContactPage({ searchParams }) {
       <div className="relative mx-auto max-w-6xl px-4 py-8 sm:py-10">
         <div className="bg-white border border-slate-200 rounded-3xl shadow-md px-4 sm:px-6 md:px-8 py-6 sm:py-8 space-y-6">
           {/* 헤더 */}
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="space-y-1">
-              <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900">
-                문의하기
-              </h1>
-              <p className="text-xs md:text-sm text-slate-500">
-                궁금한 점을 남겨주시면 확인 후 연락드릴게요.
-              </p>
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-1">
+                <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 flex items-center gap-2">
+                  💬 문의하기
+                </h1>
+                <p className="text-xs md:text-sm text-slate-500">
+                  궁금한 점을 남겨주시면 확인 후 연락드릴게요.
+                </p>
+              </div>
+
+              {/* 데스크톱 전용 CTA (모바일과 동일 톤으로 통일) */}
+              <Link
+                href="/contact/new"
+                className="hidden md:inline-flex items-center justify-center rounded-xl bg-slate-900 text-white px-7 py-3 text-sm font-semibold shadow hover:bg-slate-800 transition active:scale-[0.98]"
+              >
+                문의 남기기
+              </Link>
             </div>
 
-            <Link
-              href="/contact/new"
-              className="w-full md:w-auto inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3 text-base font-bold text-white shadow hover:bg-blue-500 transition active:scale-[0.98]"
-            >
-              문의 남기기
-            </Link>
-          </div>
+            {/* 모바일 전용 CTA */}
+            <div className="md:hidden">
+              <Link
+                href="/contact/new"
+                className="w-full inline-flex items-center justify-center rounded-xl bg-slate-900 text-white py-3 font-semibold shadow active:scale-[0.98]"
+              >
+                문의 남기기
+              </Link>
+            </div>
 
-          {/* 검색 */}
-          <form className="flex flex-col gap-2 sm:flex-row sm:items-center">
-            <input
-              name="q"
-              defaultValue={q}
-              placeholder="제목, 내용, 이름, 이메일 검색"
-              className="w-full rounded-full border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-            <button
-              type="submit"
-              className="w-full sm:w-auto rounded-full bg-blue-600 px-5 sm:px-8 py-3 sm:py-2.5 text-base sm:text-sm font-semibold text-white shadow hover:bg-blue-500 transition active:scale-[0.98] whitespace-nowrap"
-            >
-              검색
-            </button>
-          </form>
+            {/* 검색 영역 (모바일/PC 동일 룩앤필) */}
+            <form className="mt-3 flex items-center gap-2 md:mt-0">
+              <div className="relative w-full">
+                <span className="hidden md:inline absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔍</span>
+                <input
+                  name="q" defaultValue={q} placeholder="제목, 내용, 이름 검색하기" 
+                  className="
+                    w-full rounded-xl border border-slate-300 bg-white
+                    pl-3 pr-10 py-2.5 text-sm text-slate-800
+                    placeholder:text-slate-400
+                    focus:outline-none focus:ring-2 focus:ring-slate-300
+                    md:pl-9   /* PC에서만 아이콘 자리만큼 왼쪽 여백 넓게 */
+                  "
+                />
+              </div>
+
+              {/* 모바일: 아이콘, 데스크톱: 텍스트지만 동일한 버튼 톤 */}
+              <button
+                type="submit"
+                className="shrink-0 rounded-xl border border-slate-300 bg-white text-slate-700 px-4 py-2.5 text-sm font-medium hover:bg-slate-50 active:scale-[0.98] cursor-pointer md:px-6"
+                aria-label="검색"
+                title="검색"
+              >
+                <span className="md:hidden">🔍</span>
+                <span className="hidden md:inline">검색</span>
+              </button>
+            </form>
 
           {/* 모바일 카드 리스트 */}
           <div className="space-y-3 md:hidden">
@@ -108,7 +131,7 @@ export default async function ContactPage({ searchParams }) {
                     </span>
                   </div>
                   <div className="mt-1 text-[10px] text-slate-500">
-                    {item.name} · {item.email}
+                    {item.name}
                   </div>
                   <div className="mt-1 text-[10px] text-slate-400">
                     {formatTimeAgo(item.createdAt)}
@@ -155,9 +178,7 @@ export default async function ContactPage({ searchParams }) {
                         </td>
                         <td className="px-4 py-3 text-slate-700">
                           {item.name}
-                          <div className="text-[11px] text-slate-400">
-                            {item.email}
-                          </div>
+                          
                         </td>
                         <td className="px-4 py-3">
                           <span
