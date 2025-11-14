@@ -1,4 +1,4 @@
-// lib/prismaMain.ts
+// src/lib/prismaMain.ts
 //1. `globalForPrisma` - 전역 객체에 Prisma 인스턴스 저장
 //2. `??` (Nullish coalescing) - 이미 인스턴스가 있으면 재사용, 없으면 생성
 //3. `log` 옵션 - 개발 중 실행되는 쿼리 확인 가능
@@ -12,7 +12,7 @@ const globalForPrismaMain = globalThis as unknown as {
 export const prismaMain =
   globalForPrismaMain.prismaMain ??
   new PrismaClient({
-    log: [ 'error', 'warn'],
+    log: [ ],
   });
 
 if (process.env.NODE_ENV !== 'production') {

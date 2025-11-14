@@ -16,7 +16,7 @@
 }
 
 .FBOARD-border-1 {
-    @apply border-1 border-amber-700 shadow-xl shadow-igniteOrange-50 rounded-2xl
+    @apply border-1 border-amber-700 shadow-xl shadow-igniteOrange-50 rounded-2xl outline-solid outline-2 outline-white
 }
 
 html {

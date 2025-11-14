@@ -1,3 +1,4 @@
+//src/app/fire_board/write/page.jsx
 "use client";
 
 import IgniteFont from "@@/IgniteFont";

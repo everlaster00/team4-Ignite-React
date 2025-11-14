@@ -1,3 +1,4 @@
+//src/app/fire_board/page.jsx
 "use client";
 
 import { useEffect, useState } from "react";

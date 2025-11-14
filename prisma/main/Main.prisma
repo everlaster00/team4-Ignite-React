@@ -58,6 +58,9 @@ model Post {
   author    User?      @relation(fields: [authorId], references: [id])
   anonym    String    @default("이그나이터") @Main_db.VarChar(20)
   anonyPass String?
+  category  String
+  views     Int       @default(0)
+  clientIp  String?
   status    String // 'DRAFT', 'PUBLISHED'
   createdAt DateTime  @default(now())
   updateAt  DateTime  @updatedAt
@@ -79,6 +82,7 @@ model Comment {
   user      User?      @relation(fields: [userId], references: [id])
   anonym    String     @default("이그나이터") @Main_db.VarChar(20)
   anonyPass String?
+  clientIp  String?
   content   String
   createdAt DateTime   @default(now())
   updateAt  DateTime   @updatedAt
