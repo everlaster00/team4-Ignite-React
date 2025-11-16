@@ -84,7 +84,7 @@ export async function updatePost(postId, formData) {
  * @returns {object} 결과 객체 { success: boolean, isLiked: boolean, likeCount: number, error: string }
  */
 export async function togglePostLike(postId) {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   // 비회원 식별자인 connection_id를 쿠키에서 가져옵니다.
   const connectionId = cookieStore.get("connection_id")?.value;
 
@@ -139,7 +139,7 @@ export async function togglePostLike(postId) {
 // 게시글 조회 (좋아요 상태 및 카운트 포함하도록 수정)
 export async function getPost(postId , increaseView = true) {
   try {
-    const cookieStore = cookies(); // <-- cookies 임포트를 사용
+    const cookieStore = await cookies(); // <-- cookies 임포트를 사용
     // 비회원 식별자를 가져옵니다.
     const connectionId = cookieStore.get("connection_id")?.value || null; 
 

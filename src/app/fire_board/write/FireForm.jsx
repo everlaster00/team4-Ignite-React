@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { getAnonyMemo, saveAnonyMemo } from "@/utlls/anonyMemo";
 import LoadingSpinner from "@@/LoadingSpinner";
 
+const initialMemo = getAnonyMemo();
 export default function FireForm({post}) {
   const router = useRouter();
 
@@ -13,8 +14,8 @@ export default function FireForm({post}) {
   const [category, setCategory] = useState("nomal");
   const [submitting, setSubmitting] = useState(false);
 
-  const [nickname, setNickname ] = useState("");
-  const [password, setPassword ] = useState("");
+  const [nickname, setNickname ] = useState(initialMemo.nickname || "이그나이터");
+  const [password, setPassword ] = useState(initialMemo.password || "");
 
   const isEditing = !!post?.id;
   const isFormValid = title && content && nickname && password; 
@@ -23,22 +24,13 @@ export default function FireForm({post}) {
     if (post) {
       setTitle(post.title || "");
       setContent(post.content || "");
-      setCate(post.category || "nomal");
+      setCategory(post.category || "nomal");
       setNickname(post.anonym || ""); 
     } 
-    
-    if (!isEditing) {
-        const { nickname: savedNickname, password: savedPassword } = getAnonyMemo();
-        if (savedNickname) setNickname(savedNickname);
-        if (savedPassword) setPassword(savedPassword);
-    }
-
-    if (!nickname) setNickname("이그나이터");
     
   }, [post, isEditing])
 
   const handleAction = async (formData) => {
-    console.log("폼 시작", formData.get("category"));
     setSubmitting(true);
     let result;
     
@@ -47,7 +39,6 @@ export default function FireForm({post}) {
             // TODO: updatePost 로직 구현 필요
             result = await updatePost(post.id, formData); 
         } else {
-            console.log("뭐라카노?");
             result = await createPost(formData); 
         }
 
@@ -91,7 +82,7 @@ export default function FireForm({post}) {
         </label>
         <textarea
           name="content" 
-          className="w-full p-2"
+          className="w-full p-2 resize-none"
           rows={10}
           value={content}
           onChange={(e) => setContent(e.target.value)}
@@ -137,11 +128,11 @@ export default function FireForm({post}) {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="글 수정/삭제용 비밀번호"
               required
-              autoComplete="new-password"
+              autoComplete="off"
             />
           </div>
         </div>
-        <div className="SubmitBox min-w-35">
+        <div className="SubmitBox min-w-35 md:self-end mb-1">
           <button 
             type="submit" 
             className="bg-ignite shadow-sm hover:bg-igniteOrange-600 text-shadow-md text-shadow-rose-400 text-white font-semibold p-1 rounded-lg" 

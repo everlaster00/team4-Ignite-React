@@ -76,6 +76,7 @@ export async function getPostById(postId, connectionId = null) {
             _count: {
                 select: {
                     likes: true, // PostLike의 총 개수
+                    comments: true, // Comment의 총 개수
                 }
             },
         },
@@ -104,6 +105,7 @@ export async function getPostById(postId, connectionId = null) {
         ...postData,
         isLiked: isLiked,
         likeCount: postData._count.likes,
+        commentCount: postData._count.comments,
         _count: undefined, // 불필요한 필드는 제거합니다.
     };
 }

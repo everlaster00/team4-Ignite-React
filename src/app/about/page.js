@@ -16,7 +16,6 @@ export async function generateMetadata() {
 export default function TeamPage() {
 
   const backgroundImage = `url(${aboutBG.src})`;
-  console.log(backgroundImage);
 
   const backgroundStyle = {
     backgroundImage: backgroundImage,

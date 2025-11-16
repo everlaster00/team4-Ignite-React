@@ -6,7 +6,6 @@ import { formatTimeAgo } from "@/utlls/timeUtils";
 import { getCategoryDisplay } from "./categoryParse";
 
 export default function FireCard({ post }) {
-  console.log("FireCard post:", post);
   const categoryInfo = getCategoryDisplay(post.category);
   const created = post?.createdAt ? formatTimeAgo(post.createdAt) : "알 수 없음";
   const flameLevel = ( count ) => {

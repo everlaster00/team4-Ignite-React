@@ -18,7 +18,6 @@ const MyCalculator = () => {
   // 3. useEffect: 로컬 스토리지에서 기록 불러오기 (컴포넌트 마운트 시)
   useEffect(() => {
     // TODO: 로컬 스토리지에서 'CALC_HISTORY' 키의 값을 불러와서 setResultHistory에 저장하세요.
-    console.log('--- 계산기 컴포넌트가 시작되었데이! ---');
   }, []); 
 
   
