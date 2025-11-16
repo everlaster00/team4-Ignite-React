@@ -58,7 +58,8 @@ export default function FireForm({post}) {
             const currentPassword = formData.get('anonyPass');
             saveAnonyMemo(currentNickname, currentPassword);
             
-            router.push(`/fire_board/${isEditing ? post.id : result.postId}`); 
+            const redirectPath = `/fire_board/${isEditing ? post.id : result.postId}`;
+            router.push(`${redirectPath}?justPosted=true`); // 새 글임을 알리는 플래그 전달
         } else {
             alert(result?.error || (isEditing ? "게시글 수정에 실패했습니다." : "게시글 작성에 실패했습니다."));
         }
@@ -136,6 +137,7 @@ export default function FireForm({post}) {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="글 수정/삭제용 비밀번호"
               required
+              autoComplete="new-password"
             />
           </div>
         </div>
