@@ -173,11 +173,18 @@ export async function getComments(postId) {
 
 /**
  * 땔감 (댓글)을 삭제합니다. (DELETE)
- * @param {number} commentId - 땔감 ID
+ * @param {string} commentId - 땔감 ID (문자열로 넘어옴)
  * @param {FormData} formData - 폼 데이터 (비밀번호 포함)
  * @returns {object} 결과 객체 { success: boolean, error?: string }
  */
 export async function deleteComment(commentId, formData) {
+  // ⭐ [핵심 수정]: commentId를 정수형으로 안전하게 변환
+  const commentIdParse = parseInt(String(commentId), 10); 
+  
+  if (isNaN(commentIdParse)) {
+    return { success: false, error: "유효하지 않은 댓글 ID입니다." };
+  }
+  
   const anonyPass = formData.get("anonyPass");
 
   if (!anonyPass) {
@@ -185,16 +192,16 @@ export async function deleteComment(commentId, formData) {
   }
 
   try {
-    // 1. 비밀번호 검증
+    // 1. 비밀번호 검증 (변환된 ID 사용)
     const { success: isPasswordValid, error: verifyError } =
-      await verifyCommentPassword(commentId, String(anonyPass));
+      await verifyCommentPassword(commentIdParse, String(anonyPass)); // ⭐ commentIdParse 사용
 
     if (!isPasswordValid) {
       return { success: false, error: verifyError };
     }
 
-    // 2. 비밀번호 확인 후 삭제
-    const result = await deleteCommentInDB(commentId);
+    // 2. 비밀번호 확인 후 삭제 (변환된 ID 사용)
+    const result = await deleteCommentInDB(commentIdParse); // ⭐ commentIdParse 사용
 
     if (result.success) {
       // 성공 시 게시글 상세 페이지 캐시 갱신은 클라이언트에서 `router.refresh()`로 처리하도록 유지
