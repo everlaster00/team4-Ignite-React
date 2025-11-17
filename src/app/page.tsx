@@ -3,12 +3,18 @@
 
 import { useState , useEffect, useRef } from 'react';
 import Image from 'next/image';
-import ppt1 from '@/assets/ppt/ppt1.webp';
-import ppt2 from '@/assets/ppt/ppt2.webp';
-import ppt3 from '@/assets/ppt/ppt3.webp';
-import ppt4 from '@/assets/ppt/ppt4.webp';
-import ppt5 from '@/assets/ppt/ppt5.webp';
-import ppt6 from '@/assets/ppt/ppt6.webp';
+import ppt1 from '@/assets/ppt/ppt1.png';
+import ppt2 from '@/assets/ppt/ppt2.png';
+import ppt3 from '@/assets/ppt/ppt3.png';
+import ppt4 from '@/assets/ppt/ppt4.png';
+import ppt5 from '@/assets/ppt/ppt5.png';
+import ppt6 from '@/assets/ppt/ppt6.png';
+import ppt7 from '@/assets/ppt/ppt7.png';
+import ppt8 from '@/assets/ppt/ppt8.png';
+import ppt9 from '@/assets/ppt/ppt9.png';
+import ppt10 from '@/assets/ppt/ppt10.png';
+import ppt11 from '@/assets/ppt/ppt11.png';
+import ppt12 from '@/assets/ppt/ppt12.png';
 
 // ppt 슬라이드 데이터
 const slides = [
@@ -18,6 +24,12 @@ const slides = [
   { id: 4, imageSrc: ppt4, title: 'ppt4' },
   { id: 5, imageSrc: ppt5, title: 'ppt5' },
   { id: 6, imageSrc: ppt6, title: 'ppt6' },
+  { id: 7, imageSrc: ppt7, title: 'ppt7' },
+  { id: 8, imageSrc: ppt8, title: 'ppt8' },
+  { id: 9, imageSrc: ppt9, title: 'ppt9' },
+  { id: 10, imageSrc: ppt10, title: 'ppt10' },
+  { id: 11, imageSrc: ppt11, title: 'ppt11' },
+  { id: 12, imageSrc: ppt12, title: 'ppt12' },
 ];
 
 //세션 스토리지
